@@ -45,7 +45,7 @@ public class Field59FType {
 
     @XmlElement(required = true)
     protected String account;
-    protected List<NumberAddressType> numberAddress;
+    // protected List<NumberAddressType> numberAddress;
 
     /**
      * Obtient la valeur de la propriété account.
@@ -93,11 +93,12 @@ public class Field59FType {
      * 
      * 
      */
-    public List<NumberAddressType> getNumberAddress() {
+    /* public List<NumberAddressType> getNumberAddress() {
         if (numberAddress == null) {
             numberAddress = new ArrayList<NumberAddressType>();
         }
         return this.numberAddress;
     }
+     */
 
 }

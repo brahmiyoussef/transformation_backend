@@ -13,6 +13,8 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
 
+import java.math.BigDecimal;
+
 
 /**
  * <p>Classe Java pour Field32AType complex type.
@@ -48,7 +50,7 @@ public class Field32AType {
     @XmlElement(required = true)
     protected String currency;
     @XmlElement(required = true)
-    protected String amount;
+    protected BigDecimal amount;
 
     /**
      * Obtient la valeur de la propriété date.
@@ -100,13 +102,11 @@ public class Field32AType {
 
     /**
      * Obtient la valeur de la propriété amount.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
-    public String getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
@@ -118,8 +118,13 @@ public class Field32AType {
      *     {@link String }
      *     
      */
-    public void setAmount(String value) {
+    public void setAmount(BigDecimal value) {
         this.amount = value;
     }
+
+
+
+
+
 
 }

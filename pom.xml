@@ -136,6 +136,13 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>com/backend/domain/entities/mt/fields/Field59AType.java</exclude>
+                        <exclude>com/backend/domain/entities/mt/fields/Field57DType.java</exclude>
+                        <!-- Ajoutez d'autres fichiers ici -->
+                    </excludes>
+                </configuration>
             </plugin>
         </plugins>
     </build>

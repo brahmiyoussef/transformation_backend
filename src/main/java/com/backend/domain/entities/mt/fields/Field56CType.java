@@ -8,6 +8,7 @@
 
 package com.backend.domain.entities.mt.fields;
 
+import com.backend.domain.entities.mt.secondaryentities.PartyIdentifierType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlType;
