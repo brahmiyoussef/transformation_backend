@@ -19,6 +19,7 @@ import com.backend.domain.entities.mt.secondaryentities.*;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlElementDecl;
 import jakarta.xml.bind.annotation.XmlRegistry;
+import org.springframework.context.annotation.Bean;
 
 
 /**
@@ -35,7 +36,6 @@ import jakarta.xml.bind.annotation.XmlRegistry;
  * provided in this class.
  * 
  */
-@XmlRegistry
 public class ObjectFactory {
 
     private final static QName _NumberAddressTypeNumber_QNAME = new QName("", "number");
@@ -92,9 +92,6 @@ public class ObjectFactory {
      * Create an instance of {@link TagType }
      * 
      */
-    public TagType createTagType() {
-        return new TagType();
-    }
 
     /**
      * Create an instance of {@link NumberAddressType }

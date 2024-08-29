@@ -10,6 +10,9 @@ package com.backend.domain.entities.mt.fields;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -45,8 +48,24 @@ public class Field59FType {
 
     @XmlElement(required = true)
     protected String account;
-    protected List<NumberAddressType> numberAddress;
+    protected String numberAddress;
+    private static final String REGEX =
+            "([/34x])\n" +
+                    "(4*(1!n/33x))\"";
+    public boolean parse(String input) {
+        Pattern pattern = Pattern.compile(REGEX);
+        Matcher matcher = pattern.matcher(input);
 
+        if (matcher.matches()) {
+            // Extract the groups from the matcher
+            this.account = matcher.group(1); // Corresponds to (/8c)
+            this.numberAddress = matcher.group(2); // Corresponds to (/4!)
+            return true;
+        } else {
+            // Parsing failed
+            return false;
+        }
+    }
     /**
      * Obtient la valeur de la propriété account.
      * 
@@ -89,14 +108,11 @@ public class Field59FType {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link NumberAddressType }
+     * {@link  }
      * 
      * 
      */
-    public List<NumberAddressType> getNumberAddress() {
-        if (numberAddress == null) {
-            numberAddress = new ArrayList<NumberAddressType>();
-        }
+    public String getNumberAddress() {
         return this.numberAddress;
     }
 

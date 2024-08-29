@@ -56,7 +56,7 @@ public class Message {
     @XmlElement(required = true)
     protected Block2Type block2;
     @XmlElement(required = true)
-    protected Block3Type block3;
+    protected String block3;
     @XmlElement(required = true)
     protected Block4 block4;
 
@@ -116,7 +116,7 @@ public class Message {
      *     {@link Block3Type }
      *     
      */
-    public Block3Type getBlock3() {
+    public String getBlock3() {
         return block3;
     }
 
@@ -128,7 +128,7 @@ public class Message {
      *     {@link Block3Type }
      *     
      */
-    public void setBlock3(Block3Type value) {
+    public void setBlock3(String value) {
         this.block3 = value;
     }
 

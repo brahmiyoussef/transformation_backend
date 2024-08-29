@@ -12,6 +12,9 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlType;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 /**
  * <p>Classe Java pour Field57BType complex type.
@@ -40,40 +43,56 @@ import jakarta.xml.bind.annotation.XmlType;
 })
 public class Field57BType {
 
-    protected PartyIdentifierType partyIdentifier;
+    protected String partyIdentifier;
     protected String location;
+    private static final String REGEX =
+            "([/1!a][/34x])\n" +
+                    "([35x])\n" ;
+    public boolean parse(String input) {
+        Pattern pattern = Pattern.compile(REGEX);
+        Matcher matcher = pattern.matcher(input);
 
+        if (matcher.matches()) {
+            // Extract the groups from the matcher
+            this.partyIdentifier = matcher.group(1); // Corresponds to (/8c)
+            this.location = matcher.group(2); // Corresponds to (/4!)
+            return true;
+        } else {
+            // Parsing failed
+            return false;
+        }
+    }
     /**
      * Obtient la valeur de la propriété partyIdentifier.
-     * 
+     *
      * @return
      *     possible object is
-     *     {@link PartyIdentifierType }
-     *     
+     *     {@link  }
+     *
      */
-    public PartyIdentifierType getPartyIdentifier() {
+    public String getPartyIdentifier() {
         return partyIdentifier;
     }
 
     /**
      * Définit la valeur de la propriété partyIdentifier.
-     * 
+     *
      * @param value
      *     allowed object is
-     *     {@link PartyIdentifierType }
-     *     
+     *     {@link  }
+     *
      */
-    public void setPartyIdentifier(PartyIdentifierType value) {
+    public void setPartyIdentifier(String value) {
         this.partyIdentifier = value;
     }
 
     /**
      * Obtient la valeur de la propriété location.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getLocation() {
         return location;
@@ -81,11 +100,11 @@ public class Field57BType {
 
     /**
      * Définit la valeur de la propriété location.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setLocation(String value) {
         this.location = value;

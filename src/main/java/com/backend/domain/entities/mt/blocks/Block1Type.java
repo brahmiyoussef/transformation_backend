@@ -112,11 +112,11 @@ public class Block1Type {
 
         if (matcher.matches()) {
             // Extract the groups from the matcher
-            this.applicationId = matcher.group(2);
-            this.serviceId = matcher.group(3);
-            this.logicalTerminal = matcher.group(4);
-            this.sessionNumber = matcher.group(5);
-            this.sequenceNumber = matcher.group(6);
+            this.applicationId = matcher.group(1);
+            this.serviceId = matcher.group(2);
+            this.logicalTerminal = matcher.group(3);
+            this.sessionNumber = matcher.group(4);
+            this.sequenceNumber = matcher.group(5);
             return true;
         } else {
             // Parsing failed

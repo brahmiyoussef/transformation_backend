@@ -13,6 +13,9 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 /**
  * <p>Classe Java pour Field32AType complex type.
@@ -49,6 +52,22 @@ public class Field32AType {
     protected String currency;
     @XmlElement(required = true)
     protected String amount;
+    private static final String REGEX ="(\\d{6})(\\w{3})((.){9})";
+    public boolean parse(String input) {
+        Pattern pattern = Pattern.compile(REGEX);
+        Matcher matcher = pattern.matcher(input);
+
+        if (matcher.matches()) {
+            // Extract the groups from the matcher
+            this.date = matcher.group(1); // Corresponds to (/8c)
+            this.currency = matcher.group(2); // Corresponds to (/4!)
+            this.amount = matcher.group(3); // Corresponds to (n1!)
+            return true;
+        } else {
+            // Parsing failed
+            return false;
+        }
+    }
 
     /**
      * Obtient la valeur de la propriété date.

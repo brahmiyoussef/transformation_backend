@@ -13,6 +13,9 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 /**
  * <p>Classe Java pour Field13CType complex type.
@@ -71,7 +74,7 @@ import jakarta.xml.bind.annotation.XmlType;
     "sign",
     "timeOffset"
 })
-public class Field13CType {
+public class Field13CType{
 
     @XmlElement(required = true)
     protected String code;
@@ -81,6 +84,25 @@ public class Field13CType {
     protected String sign;
     @XmlElement(required = true)
     protected String timeOffset;
+    private static final String REGEX ="(/8c)(/4!)(n1!)(x4!n)";
+
+    //parse method
+    public boolean parse(String input) {
+        Pattern pattern = Pattern.compile(REGEX);
+        Matcher matcher = pattern.matcher(input);
+
+        if (matcher.matches()) {
+            // Extract the groups from the matcher
+            this.code = matcher.group(1); // Corresponds to (/8c)
+            this.timeIndication = matcher.group(2); // Corresponds to (/4!)
+            this.sign = matcher.group(3); // Corresponds to (n1!)
+            this.timeOffset = matcher.group(4); // Corresponds to (x4!n)
+            return true;
+        } else {
+            // Parsing failed
+            return false;
+        }
+    }
 
     /**
      * Obtient la valeur de la propriété code.

@@ -13,6 +13,9 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 /**
  * <p>Classe Java pour Field23EType complex type.
@@ -51,7 +54,22 @@ public class Field23EType {
     @XmlElement(required = true)
     protected String instructionCode;
     protected String additionalInformation;
+    private static final String REGEX ="(\\w{4})((.){30})";
 
+    public boolean parse(String input) {
+        Pattern pattern = Pattern.compile(REGEX);
+        Matcher matcher = pattern.matcher(input);
+
+        if (matcher.matches()) {
+            // Extract the groups from the matcher
+            this.instructionCode = matcher.group(1);
+            this.additionalInformation = matcher.group(2);
+            return true;
+        } else {
+            // Parsing failed
+            return false;
+        }
+    }
     /**
      * Obtient la valeur de la propriété instructionCode.
      * 
