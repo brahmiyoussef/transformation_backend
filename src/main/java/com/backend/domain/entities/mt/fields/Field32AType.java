@@ -13,7 +13,8 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
 
-import java.math.BigDecimal;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 /**
@@ -50,7 +51,23 @@ public class Field32AType {
     @XmlElement(required = true)
     protected String currency;
     @XmlElement(required = true)
-    protected BigDecimal amount;
+    protected String amount;
+    private static final String REGEX ="(\\d{6})(\\w{3})((.){9})";
+    public boolean parse(String input) {
+        Pattern pattern = Pattern.compile(REGEX);
+        Matcher matcher = pattern.matcher(input);
+
+        if (matcher.matches()) {
+            // Extract the groups from the matcher
+            this.date = matcher.group(1); // Corresponds to (/8c)
+            this.currency = matcher.group(2); // Corresponds to (/4!)
+            this.amount = matcher.group(3); // Corresponds to (n1!)
+            return true;
+        } else {
+            // Parsing failed
+            return false;
+        }
+    }
 
     /**
      * Obtient la valeur de la propriété date.
@@ -102,11 +119,13 @@ public class Field32AType {
 
     /**
      * Obtient la valeur de la propriété amount.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public BigDecimal getAmount() {
+    public String getAmount() {
         return amount;
     }
 
@@ -118,13 +137,8 @@ public class Field32AType {
      *     {@link String }
      *     
      */
-    public void setAmount(BigDecimal value) {
+    public void setAmount(String value) {
         this.amount = value;
     }
-
-
-
-
-
 
 }

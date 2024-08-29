@@ -10,9 +10,9 @@ package com.backend.domain.entities.mt.fields;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-import com.backend.domain.entities.mt.secondaryentities.NumberAddressType;
-import com.backend.domain.entities.mt.secondaryentities.PartyIdentifierType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -46,61 +46,71 @@ import jakarta.xml.bind.annotation.XmlType;
 })
 public class Field53DType {
 
-    protected PartyIdentifierType partyIdentifier;
-    @XmlElement(name = "NumberAddress")
-    protected List<NumberAddressType> numberAddress;
+    protected String partyIdentifier;
+    protected String numberAddress;
+    private static final String REGEX =
+            "([/1!a][/34x])\n" +
+                    "([35x])" ;
+    public boolean parse(String input) {
+        Pattern pattern = Pattern.compile(REGEX);
+        Matcher matcher = pattern.matcher(input);
 
+        if (matcher.matches()) {
+            // Extract the groups from the matcher
+            this.partyIdentifier = matcher.group(1); // Corresponds to (/8c)
+            this.numberAddress = matcher.group(2); // Corresponds to (/4!)
+            return true;
+        } else {
+            // Parsing failed
+            return false;
+        }
+    }
     /**
      * Obtient la valeur de la propriété partyIdentifier.
-     * 
+     *
      * @return
      *     possible object is
-     *     {@link PartyIdentifierType }
-     *     
+     *     {@link  }
+     *
      */
-    public PartyIdentifierType getPartyIdentifier() {
+    public String getPartyIdentifier() {
         return partyIdentifier;
     }
 
     /**
      * Définit la valeur de la propriété partyIdentifier.
-     * 
+     *
      * @param value
      *     allowed object is
-     *     {@link PartyIdentifierType }
-     *     
+     *     {@link  }
+     *
      */
-    public void setPartyIdentifier(PartyIdentifierType value) {
+    public void setPartyIdentifier(String value) {
         this.partyIdentifier = value;
     }
 
     /**
-     * Gets the value of the numberAddress property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the Jakarta XML Binding object.
-     * This is why there is not a <CODE>set</CODE> method for the numberAddress property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getNumberAddress().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link NumberAddressType }
-     * 
-     * 
+     * Obtient la valeur de la propriété location.
+     *
+     * @return
+     *     possible object is
+     *     {@link String }
+     *
      */
-    public List<NumberAddressType> getNumberAddress() {
-        if (numberAddress == null) {
-            numberAddress = new ArrayList<NumberAddressType>();
-        }
-        return this.numberAddress;
+    public String getnumberAddress() {
+        return numberAddress;
+    }
+
+    /**
+     * Définit la valeur de la propriété location.
+     *
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *
+     */
+    public void setNumberAddress(String value) {
+        this.numberAddress = value;
     }
 
 }

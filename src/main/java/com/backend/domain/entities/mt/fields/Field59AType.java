@@ -14,6 +14,9 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 /**
  * <p>Classe Java pour Field59AType complex type.
@@ -44,15 +47,31 @@ public class Field59AType {
 
     protected String account;
     @XmlElement(required = true)
-    protected IdentifierCodeType identifierCode;
+    protected String identifierCode;
+    private static final String REGEX =
+            "([/34x])\\r?\\n" + // Line break handled here
+                    "(4!a2!a2!c[3!c])";
+    public boolean parse(String input) {
+        Pattern pattern = Pattern.compile(REGEX);
+        Matcher matcher = pattern.matcher(input);
 
+        if (matcher.matches()) {
+            // Extract the groups from the matcher
+            this.account = matcher.group(1); // Corresponds to (/8c)
+            this.identifierCode = matcher.group(2); // Corresponds to (/4!)
+            return true;
+        } else {
+            // Parsing failed
+            return false;
+        }
+    }
     /**
      * Obtient la valeur de la propriété account.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getAccount() {
         return account;
@@ -60,11 +79,11 @@ public class Field59AType {
 
     /**
      * Définit la valeur de la propriété account.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setAccount(String value) {
         this.account = value;
@@ -72,25 +91,25 @@ public class Field59AType {
 
     /**
      * Obtient la valeur de la propriété identifierCode.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link IdentifierCodeType }
-     *     
+     *
      */
-    public IdentifierCodeType getIdentifierCode() {
+    public String getIdentifierCode() {
         return identifierCode;
     }
 
     /**
      * Définit la valeur de la propriété identifierCode.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link IdentifierCodeType }
-     *     
+     *
      */
-    public void setIdentifierCode(IdentifierCodeType value) {
+    public void setIdentifierCode(String value) {
         this.identifierCode = value;
     }
 

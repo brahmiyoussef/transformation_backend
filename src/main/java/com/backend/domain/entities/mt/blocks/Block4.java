@@ -13,6 +13,11 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlType;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.Map;
+
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Block4", propOrder = {
@@ -65,7 +70,7 @@ public class Block4 {
     protected String field26T;
     protected Field32AType field32A;
     protected Field33BType field33B;
-    protected String field36;
+    protected Field36Type field36;
     protected Field50AType field50A;
     protected Field50FType field50F;
     protected Field50KType field50K;
@@ -82,22 +87,64 @@ public class Block4 {
     protected Field54AType field54D;
     protected Field55AType field55D;
     protected Field56AType field56A;
-    protected Field56CType field56C;
+    protected String field56C;
     protected Field56DType field56D;
     protected Field57AType field57A;
     protected Field57BType field57B;
-    protected Field57CType field57C;
+    protected String field57C;
     protected Field57DType field57D;
     protected Field59Type field59;
     protected Field59AType field59A;
     protected Field59FType field59F;
-    protected Field70Type field70;
+    protected String field70;
     protected String field71A;
     protected Field71FType field71F;
     protected Field71GType field71G;
-    protected Field72Type field72;
-    protected Field77BType field77B;
+    protected String field72;
+    protected String field77B;
 
+
+
+    //populating block4
+
+    private String convertKeyToFieldName(String key) {
+        return "field" + key;
+    }
+
+
+    public void populateBlock4(Map<String, String> dataMap) {
+        for (Map.Entry<String, String> entry : dataMap.entrySet()) {
+            String key = entry.getKey(); // e.g., "20"
+            String value = entry.getValue();
+
+            // Convert the key to the appropriate field name (e.g., "20" -> "field20")
+            String fieldName = convertKeyToFieldName(key);
+
+            try {
+                // Use reflection to get the Field object for the fieldName
+                Field field = this.getClass().getDeclaredField(fieldName);
+
+                // Make the field accessible if it is private
+                field.setAccessible(true);
+
+                // Get the type of the field
+                Class<?> fieldType = field.getType();
+
+                // Convert the value to the appropriate type and set the field
+                if (fieldType == String.class) {
+                    field.set(this, value);
+                } else {
+                    // Assuming the type has a static parse method
+                    Method parseMethod = fieldType.getMethod("parse", String.class);
+                    Object parsedValue = parseMethod.invoke(null, value);
+                    field.set(this, parsedValue);
+                }
+
+            } catch (NoSuchFieldException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
+                e.printStackTrace();
+            }
+        }
+    }
     /**
      * Obtient la valeur de la propriété field13C.
      * 
@@ -106,6 +153,7 @@ public class Block4 {
      *     {@link Field13CType }
      *     
      */
+    //getters and setters
     public Field13CType getField13C() {
         return field13C;
     }
@@ -274,7 +322,7 @@ public class Block4 {
      *     {@link String }
      *     
      */
-    public String getField36() {
+    public Field36Type getField36() {
         return field36;
     }
 
@@ -286,7 +334,7 @@ public class Block4 {
      *     {@link String }
      *     
      */
-    public void setField36(String value) {
+    public void setField36(Field36Type value) {
         this.field36 = value;
     }
 
@@ -682,7 +730,7 @@ public class Block4 {
      *     {@link Field56CType }
      *     
      */
-    public Field56CType getField56C() {
+    public String getField56C() {
         return field56C;
     }
 
@@ -694,7 +742,7 @@ public class Block4 {
      *     {@link Field56CType }
      *     
      */
-    public void setField56C(Field56CType value) {
+    public void setField56C(String value) {
         this.field56C = value;
     }
 
@@ -778,7 +826,7 @@ public class Block4 {
      *     {@link Field57CType }
      *     
      */
-    public Field57CType getField57C() {
+    public String getField57C() {
         return field57C;
     }
 
@@ -790,7 +838,7 @@ public class Block4 {
      *     {@link Field57CType }
      *     
      */
-    public void setField57C(Field57CType value) {
+    public void setField57C(String value) {
         this.field57C = value;
     }
 
@@ -898,7 +946,7 @@ public class Block4 {
      *     {@link Field70Type }
      *     
      */
-    public Field70Type getField70() {
+    public String getField70() {
         return field70;
     }
 
@@ -910,7 +958,7 @@ public class Block4 {
      *     {@link Field70Type }
      *     
      */
-    public void setField70(Field70Type value) {
+    public void setField70(String value) {
         this.field70 = value;
     }
 
@@ -994,7 +1042,7 @@ public class Block4 {
      *     {@link Field72Type }
      *     
      */
-    public Field72Type getField72() {
+    public String getField72() {
         return field72;
     }
 
@@ -1006,7 +1054,7 @@ public class Block4 {
      *     {@link Field72Type }
      *     
      */
-    public void setField72(Field72Type value) {
+    public void setField72(String value) {
         this.field72 = value;
     }
 
@@ -1018,7 +1066,7 @@ public class Block4 {
      *     {@link Field77BType }
      *     
      */
-    public Field77BType getField77B() {
+    public String getField77B() {
         return field77B;
     }
 
@@ -1030,7 +1078,7 @@ public class Block4 {
      *     {@link Field77BType }
      *     
      */
-    public void setField77B(Field77BType value) {
+    public void setField77B(String value) {
         this.field77B = value;
     }
 

@@ -13,6 +13,9 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 /**
  * <p>Classe Java pour Field71GType complex type.
@@ -46,13 +49,30 @@ public class Field71GType {
     @XmlElement(required = true)
     protected String amount;
 
+
+    private static final String REGEX ="(3!a)(15d)";
+    public boolean parse(String input) {
+        Pattern pattern = Pattern.compile(REGEX);
+        Matcher matcher = pattern.matcher(input);
+
+        if (matcher.matches()) {
+            // Extract the groups from the matcher
+            this.currency = matcher.group(1); // Corresponds to (/4!)
+            this.amount = matcher.group(2); // Corresponds to (n1!)
+            return true;
+        } else {
+            // Parsing failed
+            return false;
+        }
+    }
+
     /**
      * Obtient la valeur de la propriété currency.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getCurrency() {
         return currency;
@@ -60,11 +80,11 @@ public class Field71GType {
 
     /**
      * Définit la valeur de la propriété currency.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setCurrency(String value) {
         this.currency = value;
@@ -72,11 +92,11 @@ public class Field71GType {
 
     /**
      * Obtient la valeur de la propriété amount.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getAmount() {
         return amount;
@@ -84,11 +104,11 @@ public class Field71GType {
 
     /**
      * Définit la valeur de la propriété amount.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setAmount(String value) {
         this.amount = value;

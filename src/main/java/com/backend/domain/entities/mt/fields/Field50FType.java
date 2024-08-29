@@ -10,6 +10,8 @@ package com.backend.domain.entities.mt.fields;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import com.backend.domain.entities.mt.secondaryentities.CodeType;
 import com.backend.domain.entities.mt.secondaryentities.NumberAddressType;
@@ -50,9 +52,31 @@ import jakarta.xml.bind.annotation.XmlType;
 public class Field50FType {
 
     protected String account;
-    protected CodeType codePart;
-    protected List<NumberAddressType> numberAddress;
+    protected String codePart;
+    protected String numberAddress;
+    private static final String REGEX =
+            "(35x) OR (4!a/2!a/27x)\n" +
+                    "(4*(1!n/33x))";
 
+    public boolean parse(String input) {
+        Pattern pattern = Pattern.compile(REGEX);
+        Matcher matcher = pattern.matcher(input);
+
+        if (matcher.matches()) {
+            // Extract the groups from the matcher
+            if (matcher.group(1)!= null){
+                this.account=matcher.group(1);// Corresponds to (/8c)
+            }
+            else if (matcher.group(2) != null) {
+                // Extract and set 'codePart' if group 2 matches
+                this.codePart = (matcher.group(2));}
+            this.numberAddress = matcher.group(3); // Corresponds to (/4!)
+            return true;
+        } else {
+            // Parsing failed
+            return false;
+        }
+    }
     /**
      * Obtient la valeur de la propriété account.
      * 
@@ -85,7 +109,7 @@ public class Field50FType {
      *     {@link CodeType }
      *     
      */
-    public CodeType getCodePart() {
+    public String getCodePart() {
         return codePart;
     }
 
@@ -97,7 +121,7 @@ public class Field50FType {
      *     {@link CodeType }
      *     
      */
-    public void setCodePart(CodeType value) {
+    public void setCodePart(String value) {
         this.codePart = value;
     }
 
@@ -123,10 +147,7 @@ public class Field50FType {
      * 
      * 
      */
-    public List<NumberAddressType> getNumberAddress() {
-        if (numberAddress == null) {
-            numberAddress = new ArrayList<NumberAddressType>();
-        }
+    public String getNumberAddress() {
         return this.numberAddress;
     }
 

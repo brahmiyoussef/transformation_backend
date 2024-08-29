@@ -15,6 +15,9 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 /**
  * <p>Classe Java pour Field51AType complex type.
@@ -43,19 +46,35 @@ import jakarta.xml.bind.annotation.XmlType;
 })
 public class Field51AType {
 
-    protected PartyIdentifierType partyIdentifier;
+    protected String partyIdentifier;
     @XmlElement(required = true)
-    protected IdentifierCodeType identifierCode;
+    protected String identifierCode;
+    private static final String REGEX =
+            "([/1!a][/34x])\n" +
+                    "(4!a2!a2!c[3!c])";
+    public boolean parse(String input) {
+        Pattern pattern = Pattern.compile(REGEX);
+        Matcher matcher = pattern.matcher(input);
+
+        if (matcher.matches()) {
+            // Extract the groups from the matcher
+            this.partyIdentifier = matcher.group(1); // Corresponds to (/8c)
+            this.identifierCode = matcher.group(2); // Corresponds to (/4!)
+            return true;
+        } else {
+            // Parsing failed
+            return false;
+        }
+    }
 
     /**
      * Obtient la valeur de la propriété partyIdentifier.
      * 
      * @return
      *     possible object is
-     *     {@link PartyIdentifierType }
-     *     
+     *
      */
-    public PartyIdentifierType getPartyIdentifier() {
+    public String getPartyIdentifier() {
         return partyIdentifier;
     }
 
@@ -64,10 +83,9 @@ public class Field51AType {
      * 
      * @param value
      *     allowed object is
-     *     {@link PartyIdentifierType }
-     *     
+     *
      */
-    public void setPartyIdentifier(PartyIdentifierType value) {
+    public void setPartyIdentifier(String value) {
         this.partyIdentifier = value;
     }
 
@@ -76,10 +94,10 @@ public class Field51AType {
      * 
      * @return
      *     possible object is
-     *     {@link IdentifierCodeType }
+     *     {@link  }
      *     
      */
-    public IdentifierCodeType getIdentifierCode() {
+    public String getIdentifierCode() {
         return identifierCode;
     }
 
@@ -88,10 +106,10 @@ public class Field51AType {
      * 
      * @param value
      *     allowed object is
-     *     {@link IdentifierCodeType }
+     *     {@link  }
      *     
      */
-    public void setIdentifierCode(IdentifierCodeType value) {
+    public void setIdentifierCode(String value) {
         this.identifierCode = value;
     }
 

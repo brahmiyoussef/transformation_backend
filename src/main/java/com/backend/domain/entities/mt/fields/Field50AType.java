@@ -14,6 +14,9 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 /**
  * <p>Classe Java pour Field50AType complex type.
@@ -44,8 +47,24 @@ public class Field50AType {
 
     protected String account;
     @XmlElement(required = true)
-    protected IdentifierCodeType identifierCode;
+    protected String identifierCode;
+    private static final String REGEX =
+            "((.){34}\\S\\s)\\r?\\n" + // Line break handled here
+                    "(\\w{4}\\w{2}\\w{2}\\w{3})";
+    public boolean parse(String input) {
+        Pattern pattern = Pattern.compile(REGEX);
+        Matcher matcher = pattern.matcher(input);
 
+        if (matcher.matches()) {
+            // Extract the groups from the matcher
+            this.account = matcher.group(1); // Corresponds to (/8c)
+            this.identifierCode = matcher.group(2); // Corresponds to (/4!)
+            return true;
+        } else {
+            // Parsing failed
+            return false;
+        }
+    }
     /**
      * Obtient la valeur de la propriété account.
      * 
@@ -78,7 +97,7 @@ public class Field50AType {
      *     {@link IdentifierCodeType }
      *     
      */
-    public IdentifierCodeType getIdentifierCode() {
+    public String getIdentifierCode() {
         return identifierCode;
     }
 
@@ -90,7 +109,7 @@ public class Field50AType {
      *     {@link IdentifierCodeType }
      *     
      */
-    public void setIdentifierCode(IdentifierCodeType value) {
+    public void setIdentifierCode(String value) {
         this.identifierCode = value;
     }
 

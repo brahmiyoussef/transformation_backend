@@ -10,9 +10,9 @@ package com.backend.domain.entities.mt.fields;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-import com.backend.domain.entities.mt.secondaryentities.NumberAddressType;
-import com.backend.domain.entities.mt.secondaryentities.PartyIdentifierType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -46,19 +46,35 @@ import jakarta.xml.bind.annotation.XmlType;
 })
 public class Field52DType {
 
-    protected PartyIdentifierType partyIdentifier;
+    protected String partyIdentifier;
     @XmlElement(name = "NumberAddress")
-    protected List<NumberAddressType> numberAddress;
+    protected String numberAddress;
+    private static final String REGEX =
+            "\"([/1!a][/34x]) \n" +
+                    "(4*35x)\"";
+    public boolean parse(String input) {
+        Pattern pattern = Pattern.compile(REGEX);
+        Matcher matcher = pattern.matcher(input);
 
+        if (matcher.matches()) {
+            // Extract the groups from the matcher
+            this.partyIdentifier = matcher.group(1); // Corresponds to (/8c)
+            this.numberAddress = matcher.group(2); // Corresponds to (/4!)
+            return true;
+        } else {
+            // Parsing failed
+            return false;
+        }
+    }
     /**
      * Obtient la valeur de la propriété partyIdentifier.
      * 
      * @return
      *     possible object is
-     *     {@link PartyIdentifierType }
+     *     {@link  }
      *     
      */
-    public PartyIdentifierType getPartyIdentifier() {
+    public String getPartyIdentifier() {
         return partyIdentifier;
     }
 
@@ -67,10 +83,10 @@ public class Field52DType {
      * 
      * @param value
      *     allowed object is
-     *     {@link PartyIdentifierType }
+     *     {@link  }
      *     
      */
-    public void setPartyIdentifier(PartyIdentifierType value) {
+    public void setPartyIdentifier(String value) {
         this.partyIdentifier = value;
     }
 
@@ -92,14 +108,11 @@ public class Field52DType {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link NumberAddressType }
+     * {@link  }
      * 
      * 
      */
-    public List<NumberAddressType> getNumberAddress() {
-        if (numberAddress == null) {
-            numberAddress = new ArrayList<NumberAddressType>();
-        }
+    public String getNumberAddress() {
         return this.numberAddress;
     }
 
