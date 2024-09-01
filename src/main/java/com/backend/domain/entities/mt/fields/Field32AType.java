@@ -8,10 +8,12 @@
 
 package com.backend.domain.entities.mt.fields;
 
+import com.backend.domain.entities.mt.message.ObjectFactory;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -52,20 +54,23 @@ public class Field32AType {
     protected String currency;
     @XmlElement(required = true)
     protected String amount;
-    private static final String REGEX ="(\\d{6})(\\w{3})((.){9})";
-    public boolean parse(String input) {
+    private static final String REGEX ="(\\d{6})(\\w{3})((\\d{6,})(,\\d{2}))";
+    public Field32AType parse(String input) {
+        Field32AType field =new Field32AType();
         Pattern pattern = Pattern.compile(REGEX);
         Matcher matcher = pattern.matcher(input);
 
         if (matcher.matches()) {
             // Extract the groups from the matcher
-            this.date = matcher.group(1); // Corresponds to (/8c)
-            this.currency = matcher.group(2); // Corresponds to (/4!)
-            this.amount = matcher.group(3); // Corresponds to (n1!)
-            return true;
+            field.date = matcher.group(1); // Corresponds to (/8c)
+            field.currency = matcher.group(2); // Corresponds to (/4!)
+            field.amount = matcher.group(3); // Corresponds to (n1!)
+            return field;
         } else {
             // Parsing failed
-            return false;
+            System.err.println("Failed to parse value: '" + input + "' using pattern: " + REGEX);
+
+            return null;
         }
     }
 

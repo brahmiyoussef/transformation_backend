@@ -49,21 +49,26 @@ public class Field50KType {
     protected String account;
     @XmlElement(name = "NumberAddress")
     protected String numberAddress;
-    private static final String REGEX =
-            "([/34x])\\r?\\n" +
-                    "(4!a2!a2!c[3!c])";
-    public boolean parse(String input) {
+
+
+    public static final String REGEX = "\\/(\\w{0,35}\n)((?:[\\w\\s,.-]{0,34}){0,3})";
+    public Field50KType parse(String input) {
         Pattern pattern = Pattern.compile(REGEX);
         Matcher matcher = pattern.matcher(input);
 
         if (matcher.matches()) {
+
+            Field50KType field=new Field50KType();
             // Extract the groups from the matcher
-            this.account = matcher.group(1); // Corresponds to (/8c)
-            this.numberAddress = matcher.group(2); // Corresponds to (/4!)
-            return true;
+            if (matcher.group(1)!= null){
+                field.account=matcher.group(1);// Corresponds to (/8c)
+            }
+            field.numberAddress = matcher.group(2); // Corresponds to (/4!)
+            return field;
         } else {
+            System.err.println("Failed to parse value: '" + input + "' using pattern: " + REGEX);
             // Parsing failed
-            return false;
+            return null;
         }
     }
     /**

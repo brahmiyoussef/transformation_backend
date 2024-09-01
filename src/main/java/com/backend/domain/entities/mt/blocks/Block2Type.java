@@ -26,15 +26,15 @@ public class Block2Type {
     protected String messageType;
     @XmlElement(required = true)
     protected String receiverAddress;
-    @XmlElement(required = true)
+    @XmlElement(required = false)
     protected String messagePriority;
-    @XmlElement(required = true)
+    @XmlElement(required = false)
     protected String deliveryMonitoring;
-    @XmlAttribute(required = true)
+    @XmlAttribute(required = false)
     protected String ObsolescencePeriod;
 
     //regex definition
-    private static final String REGEX = "(\\w)(\\d{3})([A-Z]{12})(\\w)(\\d)(\\d{3})";
+    private static final String REGEX = "(\\w)(\\d{3})([A-Z]{12})([SUN]?)([123]?)(020|003)?";
 
 //parsing method for block2
 
@@ -46,7 +46,7 @@ public class Block2Type {
             // Extract the groups from the matcher
             this.I_O_id = matcher.group(1); // Corresponds to (\w)
             this.messageType = matcher.group(2); // Corresponds to (\d{3})
-            this.receiverAddress = matcher.group(3); // Corresponds to ([A-Z]{12})
+            this.receiverAddress = matcher.group(3);// Corresponds to ([A-Z]{12})
             this.messagePriority = matcher.group(4); // Corresponds to (\w)
             this.deliveryMonitoring = matcher.group(5); // Corresponds to (\d)
             this.ObsolescencePeriod = matcher.group(6); // Corresponds to (\d{3})
