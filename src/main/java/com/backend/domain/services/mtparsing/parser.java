@@ -46,7 +46,7 @@ public class parser {
         }
         if (blocks[3] != null) {
             Block4 block4 = objectFactory.createBlock4();
-            Map<String, String> block4Map = blockExtractor.splitBlock4(blocks[3]);
+            Map<String, String> block4Map = BlockExtractor.splitBlock4(blocks[3]);
             try {
                 block4.populateBlock4(block4Map);
             } catch (Exception e) {
