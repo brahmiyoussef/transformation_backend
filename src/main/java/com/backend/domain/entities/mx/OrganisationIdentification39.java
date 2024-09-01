@@ -99,6 +99,10 @@ public class OrganisationIdentification39 {
     public void setLEI(String value) {
         this.lei = value;
     }
+    public void setOthr(String value) {
+        this.lei = value;
+    }
+
 
     /**
      * Gets the value of the othr property.

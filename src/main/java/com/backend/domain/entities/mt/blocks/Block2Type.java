@@ -8,11 +8,8 @@
 
 package com.backend.domain.entities.mt.blocks;
 
-import jakarta.xml.bind.annotation.XmlAccessType;
-import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
-import jakarta.xml.bind.annotation.XmlType;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -83,11 +80,9 @@ public class Block2Type {
 
     /**
      * Obtient la valeur de la propriété receiverAddress.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getReceiverAddress() {
         return receiverAddress;

@@ -10,10 +10,8 @@ package com.backend.domain.entities.mx;
 
 import java.util.ArrayList;
 import java.util.List;
-import jakarta.xml.bind.annotation.XmlAccessType;
-import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlElement;
-import jakarta.xml.bind.annotation.XmlType;
+
+import jakarta.xml.bind.annotation.*;
 
 
 /**
@@ -43,6 +41,7 @@ import jakarta.xml.bind.annotation.XmlType;
     "cdtTrfTxInf",
     "splmtryData"
 })
+@XmlRootElement
 public class FIToFICustomerCreditTransferV12 {
 
     @XmlElement(name = "GrpHdr", required = true)

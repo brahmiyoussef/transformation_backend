@@ -184,11 +184,6 @@ public class Block4 {
 
     /**
      * Définit la valeur de la propriété field20.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
     public void setField20(String value) {
         this.field20 = value;

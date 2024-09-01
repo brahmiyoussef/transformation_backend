@@ -8,8 +8,6 @@
 
 package com.backend.domain.entities.mt.fields;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -68,14 +66,11 @@ public class Field50KType {
     }
     /**
      * Obtient la valeur de la propriété account.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
-    public String getAccount() {
-        return account;
+    public String getAccount() { return account;
     }
 
     /**
