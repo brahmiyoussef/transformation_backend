@@ -1,5 +1,9 @@
 package com.backend.infrastructure.WatchingRepo;
 
+import com.backend.domain.entities.mt.message.Message;
+import com.backend.domain.services.mtparsing.BlockExtractor;
+import com.backend.domain.services.mtparsing.parser;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.event.EventListener;
 import org.springframework.core.annotation.Order;
@@ -7,10 +11,14 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.nio.file.*;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
 public class FileMonitorService {
+
+    @Autowired
+    private parser mtMessageService;
 
     @Value("${file.monitor.directory}")
     private String directoryPathString;
@@ -22,6 +30,7 @@ public class FileMonitorService {
     public void onApplicationEvent() {
         directoryPath = Paths.get(directoryPathString);
         createDirectoryIfNotExists(directoryPath);
+        processExistingFiles();  // Process existing files on startup
         Thread monitorThread = new Thread(this::monitorDirectory);
         monitorThread.setDaemon(true);
         monitorThread.start();
@@ -35,6 +44,18 @@ public class FileMonitorService {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    private void processExistingFiles() {
+        try (DirectoryStream<Path> stream = Files.newDirectoryStream(directoryPath)) {
+            for (Path filePath : stream) {
+                if (Files.isRegularFile(filePath)) {
+                    readFileContent(filePath);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -72,8 +93,8 @@ public class FileMonitorService {
         try {
             String content = Files.lines(filePath)
                     .collect(Collectors.joining("\n"));
-            System.out.println("File content: " + content);
-
+            Message message = mtMessageService.parseMtMessage(content);
+            System.out.println(message);
             // You can replace this print statement with calls to other services
             // For example: fileProcessingService.process(content);
         } catch (IOException e) {
