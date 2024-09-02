@@ -49,20 +49,20 @@ public class Field50AType {
     @XmlElement(required = true)
     protected String identifierCode;
     private static final String REGEX =
-            "((.){34}\\S\\s)\\r?\\n" + // Line break handled here
-                    "(\\w{4}\\w{2}\\w{2}\\w{3})";
-    public boolean parse(String input) {
+            "\\/(\\w{0,34})\\s([A-Z]{0,11})";
+    public Field50AType parse(String input) {
         Pattern pattern = Pattern.compile(REGEX);
         Matcher matcher = pattern.matcher(input);
 
         if (matcher.matches()) {
+            Field50AType field =new Field50AType();
             // Extract the groups from the matcher
-            this.account = matcher.group(1); // Corresponds to (/8c)
-            this.identifierCode = matcher.group(2); // Corresponds to (/4!)
-            return true;
+            field.account = matcher.group(1); // Corresponds to (/8c)
+            field.identifierCode = matcher.group(2); // Corresponds to (/4!)
+            return field;
         } else {
             // Parsing failed
-            return false;
+            return null;
         }
     }
     /**

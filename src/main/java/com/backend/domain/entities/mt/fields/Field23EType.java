@@ -54,20 +54,22 @@ public class Field23EType {
     @XmlElement(required = true)
     protected String instructionCode;
     protected String additionalInformation;
-    private static final String REGEX ="(\\w{4})((.){30})";
+    private static final String REGEX ="([A-Z]{4})(.)([a-zA-Z0-9\\s]{0,30})";
 
-    public boolean parse(String input) {
+    public Field23EType parse(String input) {
+        Field23EType field=new Field23EType();
         Pattern pattern = Pattern.compile(REGEX);
         Matcher matcher = pattern.matcher(input);
 
         if (matcher.matches()) {
             // Extract the groups from the matcher
-            this.instructionCode = matcher.group(1);
-            this.additionalInformation = matcher.group(2);
-            return true;
+            field.instructionCode = matcher.group(1);
+            field.additionalInformation = matcher.group(3);
+            return field;
         } else {
             // Parsing failed
-            return false;
+            System.err.println("Failed to parse value: '" + input + "' using pattern: " + REGEX);
+            return null;
         }
     }
     /**

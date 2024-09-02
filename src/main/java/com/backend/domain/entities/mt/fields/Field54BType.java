@@ -47,21 +47,22 @@ public class Field54BType {
     protected String partyIdentifier;
     protected String location;
     private static final String REGEX =
-            "([/1!a][/34x])\n" +
-                    "([35x])\n" ;
-    public boolean parse(String input) {
+            "(\\w{0,34})";  //\s([A-Z]{0,11})
+    public Field54BType parse(String input) {
+        Field54BType field=new Field54BType();
         Pattern pattern = Pattern.compile(REGEX);
         Matcher matcher = pattern.matcher(input);
 
         if (matcher.matches()) {
+            System.out.println(matcher.group(1));
             // Extract the groups from the matcher
-            this.partyIdentifier = matcher.group(1); // Corresponds to (/8c)
-            this.location = matcher.group(2); // Corresponds to (/4!)
-            return true;
-        } else {
+            field.location = matcher.group(1);
+            return field;}
+        else {
             // Parsing failed
-            return false;
+            return null;
         }
+
     }
     /**
      * Obtient la valeur de la propriété partyIdentifier.

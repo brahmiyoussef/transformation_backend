@@ -9,14 +9,17 @@
 package com.backend.domain.entities.mt.blocks;
 
 import com.backend.domain.entities.mt.fields.*;
+import com.backend.domain.entities.mt.message.ObjectFactory;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlType;
 
-import java.lang.reflect.Field;
+import java.lang.reflect.*;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -70,7 +73,7 @@ public class Block4 {
     protected String field26T;
     protected Field32AType field32A;
     protected Field33BType field33B;
-    protected Field36Type field36;
+    protected String field36;
     protected Field50AType field50A;
     protected Field50FType field50F;
     protected Field50KType field50K;
@@ -103,6 +106,7 @@ public class Block4 {
     protected String field72;
     protected String field77B;
 
+    private static final Logger LOGGER = Logger.getLogger(Block4.class.getName());
 
 
     //populating block4
@@ -110,41 +114,77 @@ public class Block4 {
     private String convertKeyToFieldName(String key) {
         return "field" + key;
     }
+    public static void dumpMethods(String className) {
+        try {
+            // Load the class using the className
+            Class<?> clazz = Class.forName(className);
 
+            // Get all declared methods of the class
+            Method[] methods = clazz.getDeclaredMethods();
 
+            // Print each method's details
+            for (Method method : methods) {
+                LOGGER.log(Level.INFO, method.toString());
+            }
+        } catch (ClassNotFoundException e) {
+            LOGGER.log(Level.INFO, "Class not found: " + className);
+        } catch (Throwable e) {
+            LOGGER.log(Level.INFO, "An error occurred: " + e);
+        }}
     public void populateBlock4(Map<String, String> dataMap) {
         for (Map.Entry<String, String> entry : dataMap.entrySet()) {
-            String key = entry.getKey(); // e.g., "20"
+            String key = entry.getKey();
             String value = entry.getValue();
 
-            // Convert the key to the appropriate field name (e.g., "20" -> "field20")
+            if (value == null) {
+                LOGGER.log(Level.WARNING, "Value for key '" + key + "' is null, skipping...");
+                continue;
+            }
+
             String fieldName = convertKeyToFieldName(key);
 
             try {
-                // Use reflection to get the Field object for the fieldName
                 Field field = this.getClass().getDeclaredField(fieldName);
-
-                // Make the field accessible if it is private
                 field.setAccessible(true);
 
-                // Get the type of the field
                 Class<?> fieldType = field.getType();
 
-                // Convert the value to the appropriate type and set the field
+                LOGGER.log(Level.INFO, "Processing field: " + fieldName + " of type: " + fieldType.getName());
+
                 if (fieldType == String.class) {
                     field.set(this, value);
                 } else {
-                    // Assuming the type has a static parse method
-                    Method parseMethod = fieldType.getMethod("parse", String.class);
-                    Object parsedValue = parseMethod.invoke(null, value);
-                    field.set(this, parsedValue);
+                    Object parsedValue = parseValue(fieldType, value);
+                    if (parsedValue != null) {
+                        field.set(this, parsedValue);
+                    } else {
+                        LOGGER.log(Level.WARNING, "Failed to parse value '" + value + "' for field: " + fieldName);
+                    }
                 }
 
-            } catch (NoSuchFieldException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
-                e.printStackTrace();
+            } catch (NoSuchFieldException e) {
+                LOGGER.log(Level.SEVERE, "Field not found: " + fieldName, e);
+            } catch (IllegalAccessException e) {
+                LOGGER.log(Level.SEVERE, "Error accessing field: " + fieldName, e);
+            } catch (Exception e) {
+                LOGGER.log(Level.SEVERE, "Unexpected error processing field: " + fieldName, e);
             }
         }
     }
+
+    private Object parseValue(Class<?> fieldType, String value) throws Exception {
+        try {
+            Method parseMethod = fieldType.getMethod("parse", String.class);
+            Object instance = fieldType.getDeclaredConstructor().newInstance();
+            return parseMethod.invoke(instance, value);
+        } catch (NoSuchMethodException e) {
+            // Handle case where parse method doesn't exist, potentially use default handling or throw
+            throw new IllegalArgumentException("No parse method found for type: " + fieldType.getName(), e);
+        } catch (InvocationTargetException e) {
+            throw new IllegalArgumentException("Error invoking parse method for type: " + fieldType.getName(), e);
+        }
+    }
+
     /**
      * Obtient la valeur de la propriété field13C.
      * 
@@ -317,7 +357,7 @@ public class Block4 {
      *     {@link String }
      *     
      */
-    public Field36Type getField36() {
+    public String getField36() {
         return field36;
     }
 
@@ -329,7 +369,7 @@ public class Block4 {
      *     {@link String }
      *     
      */
-    public void setField36(Field36Type value) {
+    public void setField36(String value) {
         this.field36 = value;
     }
 
