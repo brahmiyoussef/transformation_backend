@@ -5,64 +5,104 @@
 // Généré le : 2024.08.27 à 03:47:59 PM WEST 
 //
 
-
 package com.backend.domain.entities.mt.fields;
 
-import com.backend.domain.entities.mt.secondaryentities.PartyIdentifierType;
+import com.backend.domain.entities.mt.secondaryentities.IdentifierCodeType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * <p>Classe Java pour Field56CType complex type.
- * 
+ *
  * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="Field56CType"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="partyIdentifier" type="{}PartyIdentifierType" minOccurs="0"/&gt;
+ *         &lt;element name="identifierCode" type="{}IdentifierCodeType"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Field56CType", propOrder = {
-    "partyIdentifier"
+    "partyIdentifier",
+    "identifierCode"
 })
 public class Field56CType {
 
-    protected PartyIdentifierType partyIdentifier;
+    protected String partyIdentifier;  // Changed to String to match the structure of Field56AType
+    @XmlElement(required = true)
+    protected String identifierCode;
+
+    // Regular expression for parsing input data
+    private static final String REGEX = "([/1!a][/34x])\n" + "(4!a2!a2!c[3!c])";
+
+    /**
+     * Method to parse input data and set the values for partyIdentifier and identifierCode.
+     *
+     * @param input The input string to be parsed.
+     * @return True if parsing is successful, false otherwise.
+     */
+    public boolean parse(String input) {
+        Pattern pattern = Pattern.compile(REGEX);
+        Matcher matcher = pattern.matcher(input);
+
+        if (matcher.matches()) {
+            // Extract the groups from the matcher
+            this.partyIdentifier = matcher.group(1); // Corresponds to (/8c)
+            this.identifierCode = matcher.group(2); // Corresponds to (/4!)
+            return true;
+        } else {
+            // Parsing failed
+            return false;
+        }
+    }
 
     /**
      * Obtient la valeur de la propriété partyIdentifier.
-     * 
-     * @return
-     *     possible object is
-     *     {@link PartyIdentifierType }
-     *     
+     *
+     * @return possible object is {@link String }
      */
-    public PartyIdentifierType getPartyIdentifier() {
+    public String getPartyIdentifier() {
         return partyIdentifier;
     }
 
     /**
      * Définit la valeur de la propriété partyIdentifier.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link PartyIdentifierType }
-     *     
+     *
+     * @param value allowed object is {@link String }
      */
-    public void setPartyIdentifier(PartyIdentifierType value) {
+    public void setPartyIdentifier(String value) {
         this.partyIdentifier = value;
     }
 
+    /**
+     * Obtient la valeur de la propriété identifierCode.
+     *
+     * @return possible object is {@link String }
+     */
+    public String getIdentifierCode() {
+        return identifierCode;
+    }
+
+    /**
+     * Définit la valeur de la propriété identifierCode.
+     *
+     * @param value allowed object is {@link String }
+     */
+    public void setIdentifierCode(String value) {
+        this.identifierCode = value;
+    }
 }

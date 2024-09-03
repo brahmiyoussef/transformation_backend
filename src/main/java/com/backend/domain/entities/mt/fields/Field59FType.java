@@ -46,6 +46,8 @@ import jakarta.xml.bind.annotation.XmlType;
 })
 public class Field59FType {
 
+
+
     @XmlElement(required = true)
     protected String account;
     protected String numberAddress;
@@ -114,6 +116,9 @@ public class Field59FType {
      */
     public String getNumberAddress() {
         return this.numberAddress;
+    }
+    public void setNumberAddress(String numberAddress) {
+        this.numberAddress = numberAddress;
     }
 
 }

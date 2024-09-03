@@ -1,0 +1,29 @@
+package com.backend.domain.services.mxBuilding.mapping;
+
+import com.backend.domain.entities.mt.fields.Field53BType;
+import com.backend.domain.entities.mx.BranchAndFinancialInstitutionIdentification8;
+import com.backend.domain.entities.mx.BranchData5;
+
+public class Field53BMapper {
+
+    // Map Field53BType to an existing BranchAndFinancialInstitutionIdentification8 instance
+    public static void mapField53BToBranchAndFinInstId(Field53BType field53B, BranchAndFinancialInstitutionIdentification8 branchAndFinInstId) {
+        // If partyIdentifier is present, map it to the BranchData5 object
+        if (field53B.getPartyIdentifier() != null && !field53B.getPartyIdentifier().isEmpty()) {
+            BranchData5 branchData = new BranchData5();
+            branchData.setId(field53B.getPartyIdentifier()); // Set the partyIdentifier as the branch ID
+            branchAndFinInstId.setBrnchId(branchData); // Assign the branch data to the BranchAndFinancialInstitutionIdentification8 instance
+        }
+
+        // If location is present, map it to the BranchData5 object
+        if (field53B.getLocation() != null && !field53B.getLocation().isEmpty()) {
+            // If branchData is already set, update it; otherwise, create a new instance
+            BranchData5 branchData = branchAndFinInstId.getBrnchId() != null
+                    ? branchAndFinInstId.getBrnchId()
+                    : new BranchData5();
+
+            branchData.setNm(field53B.getLocation()); // Set the location as the branch name
+            branchAndFinInstId.setBrnchId(branchData); // Assign the branch data to the BranchAndFinancialInstitutionIdentification8 instance
+        }
+    }
+}
