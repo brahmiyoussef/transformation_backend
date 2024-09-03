@@ -14,15 +14,14 @@ import java.util.Map;
 @Service
 public class parser {
 
-    @Autowired
-    private BlockExtractor blockExtractor;
 
-    @Autowired
-    private ObjectFactory objectFactory;
+
 
     public Message parseMtMessage(String mtMessage) {
         // Extract blocks from the MT message
-        String[] blocks = blockExtractor.extractBlocks(mtMessage);
+        BlockExtractor blockExtractor= new BlockExtractor();
+        String[] blocks = BlockExtractor.extractBlocks(mtMessage);
+         ObjectFactory objectFactory= new ObjectFactory();
         // Create a new Message instance using the ObjectFactory
         Message message = objectFactory.createMessage();
 

@@ -54,7 +54,7 @@ public class Field32AType {
     protected String currency;
     @XmlElement(required = true)
     protected String amount;
-    private static final String REGEX ="(\\d{6})(\\w{3})((\\d{6,})(,\\d{2}))";
+    private static final String REGEX ="(\\d{6})(\\w{3})((\\d{0,6})(,?\\d{0,2}))";
     public Field32AType parse(String input) {
         Field32AType field =new Field32AType();
         Pattern pattern = Pattern.compile(REGEX);
