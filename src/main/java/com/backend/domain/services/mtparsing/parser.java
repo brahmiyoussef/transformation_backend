@@ -17,12 +17,11 @@ public class parser {
 
 
 
-
     public Message parseMtMessage(String mtMessage) {
-         BlockExtractor blockExtractor= new BlockExtractor();
-         ObjectFactory objectFactory= new ObjectFactory();
         // Extract blocks from the MT message
-        String[] blocks = blockExtractor.extractBlocks(mtMessage);
+        BlockExtractor blockExtractor= new BlockExtractor();
+        String[] blocks = BlockExtractor.extractBlocks(mtMessage);
+         ObjectFactory objectFactory= new ObjectFactory();
         // Create a new Message instance using the ObjectFactory
         Message message = objectFactory.createMessage();
 
@@ -46,7 +45,7 @@ public class parser {
         }
         if (blocks[3] != null) {
             Block4 block4 = objectFactory.createBlock4();
-            Map<String, String> block4Map = blockExtractor.splitBlock4(blocks[3]);
+            Map<String, String> block4Map = BlockExtractor.splitBlock4(blocks[3]);
             try {
                 block4.populateBlock4(block4Map);
             } catch (Exception e) {
