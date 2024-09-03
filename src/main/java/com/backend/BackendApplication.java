@@ -11,6 +11,7 @@ import com.backend.domain.services.mtparsing.BlockExtractor;
 import com.backend.domain.services.mtparsing.parser;
 
 
+import java.lang.reflect.Field;
 import java.util.Map;
 
 public class BackendApplication {
@@ -38,7 +39,6 @@ public class BackendApplication {
         Message message = mtMessageService.parseMtMessage(mt103Message);
 
         System.out.println("Le msg est: " + message);
-
 
 
 
