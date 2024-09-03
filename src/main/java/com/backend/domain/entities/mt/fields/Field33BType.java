@@ -18,26 +18,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
-/**
- * <p>Classe Java pour Field33BType complex type.
- * 
- * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
- * 
- * <pre>
- * &lt;complexType name="Field33BType"&gt;
- *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *       &lt;sequence&gt;
- *         &lt;element name="currency" type="{}CurrencyType"/&gt;
- *         &lt;element name="amount" type="{}AmountType"/&gt;
- *       &lt;/sequence&gt;
- *     &lt;/restriction&gt;
- *   &lt;/complexContent&gt;
- * &lt;/complexType&gt;
- * </pre>
- * 
- * 
- */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Field33BType", propOrder = {
     "currency",
@@ -51,20 +31,27 @@ public class Field33BType {
     protected BigDecimal amount;
 
 
-    private static final String REGEX ="(3!a)(15d)";
-    public boolean parse(String input) {
+    private static final String REGEX ="(\\w{3})(\\d{6,})(,\\d{2})";
+
+    public Field33BType() {
+    }
+
+    public static Field33BType parse(String input) {
         Pattern pattern = Pattern.compile(REGEX);
         Matcher matcher = pattern.matcher(input);
 
         if (matcher.matches()) {
+            // Create a new instance of Field33BType
+            Field33BType field = new Field33BType();
             // Extract the groups from the matcher
-            this.currency = matcher.group(1); // Corresponds to (/4!)
-            this.amount= new BigDecimal(matcher.group(2));
-
-            return true;
+            field.currency = matcher.group(1); // Corresponds to (/4!)
+            field.amount =new BigDecimal(matcher.group(2)) ; // Corresponds to (n1!)
+            return field;
         } else {
+            System.err.println("Failed to parse value: '" + input + "' using pattern: " + REGEX);
+
             // Parsing failed
-            return false;
+            return null;
         }
     }
 
@@ -94,9 +81,11 @@ public class Field33BType {
 
     /**
      * Obtient la valeur de la propriété amount.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public BigDecimal getAmount() {
         return amount;

@@ -87,20 +87,21 @@ public class Field13CType{
     private static final String REGEX ="(/8c)(/4!)(n1!)(x4!n)";
 
     //parse method
-    public boolean parse(String input) {
+    public Field13CType parse(String input) {
+        Field13CType field=new Field13CType();
         Pattern pattern = Pattern.compile(REGEX);
         Matcher matcher = pattern.matcher(input);
 
         if (matcher.matches()) {
             // Extract the groups from the matcher
-            this.code = matcher.group(1); // Corresponds to (/8c)
-            this.timeIndication = matcher.group(2); // Corresponds to (/4!)
-            this.sign = matcher.group(3); // Corresponds to (n1!)
-            this.timeOffset = matcher.group(4); // Corresponds to (x4!n)
-            return true;
+            field.code = matcher.group(1); // Corresponds to (/8c)
+            field.timeIndication = matcher.group(2); // Corresponds to (/4!)
+            field.sign = matcher.group(3); // Corresponds to (n1!)
+            field.timeOffset = matcher.group(4); // Corresponds to (x4!n)
+            return field;
         } else {
             // Parsing failed
-            return false;
+            return null;
         }
     }
 

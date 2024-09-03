@@ -94,8 +94,10 @@ public class Field71FType {
     /**
      * Obtient la valeur de la propriété amount.
      *
-     * @return possible object is
-     * {@link String }
+     * @return
+     *     possible object is
+     *     {@link String }
+     *
      */
     public BigDecimal getAmount() {
         return amount;

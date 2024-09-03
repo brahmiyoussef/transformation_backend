@@ -49,21 +49,24 @@ public class Field59Type {
     protected String account;
     @XmlElement(name = "NumberAddress")
     protected String numberAddress;
-    private static final String REGEX =
-            "((.){34}\\S\\s)\\r?\\n" + // Line break handled here
-                    "(\\w{4}\\w{2}\\w{2}\\w{3})";
-    public boolean parse(String input) {
+    public static final String REGEX = "\\/(\\w{0,35}\n)((?:[\\w\\s,.-]{0,34}){0,3})";
+    public Field59Type parse(String input) {
         Pattern pattern = Pattern.compile(REGEX);
         Matcher matcher = pattern.matcher(input);
 
         if (matcher.matches()) {
+
+            Field59Type field=new Field59Type();
             // Extract the groups from the matcher
-            this.account = matcher.group(1); // Corresponds to (/8c)
-            this.numberAddress = matcher.group(2); // Corresponds to (/4!)
-            return true;
+
+                System.out.println("1"+matcher.group(1));
+                field.account=matcher.group(1);// Corresponds to (/8c)
+            field.numberAddress = matcher.group(2); // Corresponds to (/4!)
+            return field;
         } else {
+            System.err.println("Failed to parse value: '" + input + "' using pattern: " + REGEX);
             // Parsing failed
-            return false;
+            return null;
         }
     }
     /**

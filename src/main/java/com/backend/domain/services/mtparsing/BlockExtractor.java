@@ -13,7 +13,7 @@ public class BlockExtractor {
     private static final String BLOCK_PATTERN_STRING = "\\{([124]):([\\s\\S]*?)\\}";
     private static final String EXPRESSION_PATTERN_STRING = "\\{([0-9]{3}):([\\s\\S]*?)\\}";
 
-    public String[] extractBlocks(String content) {
+    public static String[] extractBlocks(String content) {
         Pattern blockPattern = Pattern.compile(BLOCK_PATTERN_STRING, Pattern.DOTALL);
         Pattern expressionPattern = Pattern.compile(EXPRESSION_PATTERN_STRING, Pattern.DOTALL);
 
@@ -46,7 +46,7 @@ public class BlockExtractor {
         return blocks;
     }
 
-    public Map<String, String> splitBlock4(String content) {
+    public static Map<String, String> splitBlock4(String content) {
         Map<String, String> map = new HashMap<>();
         Pattern pattern = Pattern.compile(":(\\w+):(.*?)(?=(?:\\n:\\w+:|$))", Pattern.DOTALL);
         Matcher matcher = pattern.matcher(content);
