@@ -106,4 +106,5 @@ public class RemittanceInformation22 {
         return this.strd;
     }
 
+    public void setUstrd(List<String> ustrd) {this.ustrd = ustrd;}
 }

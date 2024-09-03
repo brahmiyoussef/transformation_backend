@@ -13,6 +13,7 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
 
+import java.math.BigDecimal;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -92,13 +93,11 @@ public class Field33BType {
 
     /**
      * Obtient la valeur de la propriété amount.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
-    public String getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 

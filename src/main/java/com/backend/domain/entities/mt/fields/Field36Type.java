@@ -11,6 +11,8 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
 
+import java.math.BigDecimal;
+
 /**
  * Java class for Field36Type complex type.
  *
@@ -26,12 +28,10 @@ public class Field36Type {
     /**
      * Obtient la valeur de la propriété value.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible object is
+     * {@link String }
      */
-    public String getValue() {
+    public BigDecimal getValue() {
         return value;
     }
 
