@@ -5,7 +5,7 @@ import com.backend.domain.entities.mt.fields.Field50FType;
 import com.backend.domain.entities.mt.fields.Field50KType;
 import com.backend.domain.entities.mx.TaxParty1;
 
-public class Field50FMapper {
+public class Field50Mapper {
 
     public static void mapField50F(Field50FType field50F , TaxParty1 cdtr)
     {
