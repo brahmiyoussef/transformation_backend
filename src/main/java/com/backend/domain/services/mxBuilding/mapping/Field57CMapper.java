@@ -14,9 +14,7 @@ public class Field57CMapper {
             return;
         }
 
-        // Check if partyIdentifier is present and not null
-        if (field57C.getPartyIdentifier() != null && !field57C.getPartyIdentifier().isEmpty()) {
-            // Retrieve the partyIdentifier value directly from Field57CType
+
             String identifierValue = field57C.getPartyIdentifier();
 
             // If identifierValue is not empty, set it in BranchData5
@@ -25,4 +23,4 @@ public class Field57CMapper {
             branchAndFinInstId.setBrnchId(branchData);  // Assign the branch data to BranchAndFinancialInstitutionIdentification8 instance
         }
     }
-}
+

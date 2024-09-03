@@ -23,7 +23,7 @@ import java.math.BigDecimal;
 public class Field36Type {
 
     @XmlElement(required = true)
-    protected String value;
+    protected BigDecimal value;
 
     /**
      * Obtient la valeur de la propriété value.
@@ -43,7 +43,7 @@ public class Field36Type {
      *     {@link String }
      *
      */
-    public void setValue(String value) {
+    public void setValue(BigDecimal value) {
         this.value = value;
     }
 }

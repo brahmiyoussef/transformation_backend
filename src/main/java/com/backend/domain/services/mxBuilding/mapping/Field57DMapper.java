@@ -8,11 +8,7 @@ public class Field57DMapper {
 
     // Map Field57DType to an existing BranchAndFinancialInstitutionIdentification8 instance
     public static void mapField57DToBranchAndFinInstId(Field57DType field57D, BranchAndFinancialInstitutionIdentification8 branchAndFinInstId) {
-        // Check if FinancialInstitutionIdentification23 is initialized
-        if (branchAndFinInstId.getFinInstnId() == null) {
-            System.out.println("Financial Institution Identification is not initialized.");
-            return;
-        }
+
 
         // Check if partyIdentifier is present and not null
         if (field57D.getPartyIdentifier() != null && !field57D.getPartyIdentifier().isEmpty()) {

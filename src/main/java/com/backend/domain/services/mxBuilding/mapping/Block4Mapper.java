@@ -39,7 +39,7 @@ public class Block4Mapper{
                 branch.setBrnchId(new BranchData5());
             }
 
-            PartyIdentifierType partyIdentifier = field56C.getPartyIdentifier();
+            String partyIdentifier = field56C.getPartyIdentifier();
 
             // Si partyIdentifier n'est pas nul, assignez-le à l'ID de BranchData5
             if (partyIdentifier != null) {
@@ -60,7 +60,7 @@ public class Block4Mapper{
                 branch.setBrnchId(new BranchData5());
             }
 
-            PartyIdentifierType partyIdentifier = field57C.getPartyIdentifier();
+            String partyIdentifier = field57C.getPartyIdentifier();
 
             // Si partyIdentifier n'est pas nul, assignez-le à l'ID de BranchData5
             if (partyIdentifier != null) {

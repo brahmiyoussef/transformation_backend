@@ -48,7 +48,7 @@ public class Field71FType {
     @XmlElement(required = true)
     protected String currency;
     @XmlElement(required = true)
-    protected String amount;
+    protected BigDecimal amount;
 
 
     private static final String REGEX ="(3!a)(15d)";
@@ -59,7 +59,7 @@ public class Field71FType {
         if (matcher.matches()) {
             // Extract the groups from the matcher
             this.currency = matcher.group(1); // Corresponds to (/4!)
-            this.amount = matcher.group(2); // Corresponds to (n1!)
+            this.amount = new BigDecimal(matcher.group(2)); // Corresponds to (n1!)
             return true;
         } else {
             // Parsing failed
@@ -109,7 +109,7 @@ public class Field71FType {
      *     {@link String }
      *
      */
-    public void setAmount(String value) {
+    public void setAmount(BigDecimal value) {
         this.amount = value;
     }
 
