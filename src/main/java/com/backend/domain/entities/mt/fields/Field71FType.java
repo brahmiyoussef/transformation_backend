@@ -47,24 +47,27 @@ public class Field71FType {
     @XmlElement(required = true)
     protected String currency;
     @XmlElement(required = true)
-    protected String amount;
+    protected BigDecimal amount;
 
 
-    private static final String REGEX ="(3!a)(15d)";
-    public boolean parse(String input) {
+    private static final String REGEX ="(\\w{3})(\\d{15})";
+    public Field71GType parse(String input) {
+
         Pattern pattern = Pattern.compile(REGEX);
         Matcher matcher = pattern.matcher(input);
 
         if (matcher.matches()) {
+            Field71GType field=new Field71GType();
             // Extract the groups from the matcher
-            this.currency = matcher.group(1); // Corresponds to (/4!)
-            this.amount = matcher.group(2); // Corresponds to (n1!)
-            return true;
+            field.currency = matcher.group(1); // Corresponds to (/4!)
+            field.amount =new BigDecimal(matcher.group(2)); // Corresponds to (n1!)
+            return field;
         } else {
             // Parsing failed
-            return false;
+            return null;
         }
     }
+
 
     /**
      * Obtient la valeur de la propriété currency.
@@ -93,8 +96,10 @@ public class Field71FType {
     /**
      * Obtient la valeur de la propriété amount.
      *
-     * @return possible object is
-     * {@link String }
+     * @return
+     *     possible object is
+     *     {@link String }
+     *
      */
     public String getAmount() {
         return amount;
@@ -108,7 +113,7 @@ public class Field71FType {
      *     {@link String }
      *
      */
-    public void setAmount(String value) {
+    public void setAmount(BigDecimal value) {
         this.amount = value;
     }
 

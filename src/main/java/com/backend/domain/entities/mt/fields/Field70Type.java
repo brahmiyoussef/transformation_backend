@@ -8,9 +8,8 @@
 
 package com.backend.domain.entities.mt.fields;
 
-import java.util.Collection;
+import java.util.ArrayList;
 import java.util.List;
-
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlType;
@@ -40,18 +39,8 @@ import jakarta.xml.bind.annotation.XmlType;
     "narrativeLine"
 })
 public class Field70Type {
+
     protected List<String> narrativeLine;
-
-    // Getters and Setters
-    public List<String> getNarrativeLine() {
-        return narrativeLine;
-    }
-
-    public void setNarrativeLine(List<String> narrativeLine) {
-        this.narrativeLine = narrativeLine;
-    }
-
-
 
     /**
      * Gets the value of the narrativeLine property.
@@ -75,6 +64,11 @@ public class Field70Type {
      * 
      * 
      */
-
+    public List<String> getNarrativeLine() {
+        if (narrativeLine == null) {
+            narrativeLine = new ArrayList<String>();
+        }
+        return this.narrativeLine;
+    }
 
 }

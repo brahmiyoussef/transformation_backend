@@ -32,14 +32,14 @@ public class Block4Mapper{
 
 
 
-        public static void mapField56CToBrnch(Field56CType field56C, BranchAndFinancialInstitutionIdentification8 branch) {
+        public static void mapField56CToBrnch(String field56C, BranchAndFinancialInstitutionIdentification8 branch) {
 
 
             if (branch.getBrnchId() == null) {
                 branch.setBrnchId(new BranchData5());
             }
 
-            String partyIdentifier = field56C.getPartyIdentifier();
+            String partyIdentifier = field56C;
 
             // Si partyIdentifier n'est pas nul, assignez-le à l'ID de BranchData5
             if (partyIdentifier != null) {

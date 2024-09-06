@@ -13,6 +13,7 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
 
+import java.math.BigDecimal;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -47,22 +48,24 @@ public class Field71GType {
     @XmlElement(required = true)
     protected String currency;
     @XmlElement(required = true)
-    protected String amount;
+    protected BigDecimal amount;
 
 
-    private static final String REGEX ="(3!a)(15d)";
-    public boolean parse(String input) {
+    private static final String REGEX ="(\\w{3})(\\d{15})";
+    public Field71GType parse(String input) {
+
         Pattern pattern = Pattern.compile(REGEX);
         Matcher matcher = pattern.matcher(input);
 
         if (matcher.matches()) {
+            Field71GType field=new Field71GType();
             // Extract the groups from the matcher
-            this.currency = matcher.group(1); // Corresponds to (/4!)
-            this.amount = matcher.group(2); // Corresponds to (n1!)
-            return true;
+            field.currency = matcher.group(1); // Corresponds to (/4!)
+            field.amount =new BigDecimal(matcher.group(2)); // Corresponds to (n1!)
+            return field;
         } else {
             // Parsing failed
-            return false;
+            return null;
         }
     }
 
@@ -98,7 +101,7 @@ public class Field71GType {
      *     {@link String }
      *
      */
-    public String getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
@@ -110,7 +113,7 @@ public class Field71GType {
      *     {@link String }
      *
      */
-    public void setAmount(String value) {
+    public void setAmount(BigDecimal value) {
         this.amount = value;
     }
 

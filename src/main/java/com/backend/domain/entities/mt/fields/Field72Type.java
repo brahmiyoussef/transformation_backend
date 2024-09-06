@@ -45,12 +45,6 @@ public class Field72Type {
     protected String code;
     protected List<String> narrative;
 
-
-    public void setNarrative(List<String> narrative) {
-        this.narrative = narrative;
-    }
-
-
     /**
      * Obtient la valeur de la propriété code.
      * 

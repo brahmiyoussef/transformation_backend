@@ -7,7 +7,7 @@ import com.backend.domain.entities.mx.BranchData5;
 public class Field56CMapper {
 
     // Map Field56CType to an existing BranchAndFinancialInstitutionIdentification8 instance
-    public static void mapField56CToBranchAndFinInstId(Field56CType field56C, BranchAndFinancialInstitutionIdentification8 branchAndFinInstId) {
+    public static void mapField56CToBranchAndFinInstId(String field56C, BranchAndFinancialInstitutionIdentification8 branchAndFinInstId) {
         // Check if FinancialInstitutionIdentification23 is initialized
         if (branchAndFinInstId.getFinInstnId() == null) {
             System.out.println("Financial Institution Identification is not initialized.");
@@ -15,9 +15,9 @@ public class Field56CMapper {
         }
 
         // Check if partyIdentifier is present and not null
-        if (field56C.getPartyIdentifier() != null && !field56C.getPartyIdentifier().isEmpty()) {
+        if (field56C != null ) {
             // Retrieve the partyIdentifier value from Field56CType
-            String identifierValue = field56C.getPartyIdentifier();
+            String identifierValue = field56C;
 
             // If identifierValue is not empty, set it in BranchData5
             if (!identifierValue.isEmpty()) {
