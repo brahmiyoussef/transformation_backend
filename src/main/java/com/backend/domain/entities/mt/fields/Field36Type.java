@@ -31,7 +31,7 @@ public class Field36Type {
      * @return possible object is
      * {@link String }
      */
-    public BigDecimal getValue() {
+    public String getValue() {
         return value;
     }
 

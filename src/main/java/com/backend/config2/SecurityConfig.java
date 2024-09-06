@@ -21,7 +21,7 @@ public class SecurityConfig {
    @Bean
    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
       http.cors(Customizer.withDefaults()).csrf(AbstractHttpConfigurer::disable).authorizeHttpRequests((authz) -> {
-         ((AuthorizeHttpRequestsConfigurer.AuthorizedUrl)((AuthorizeHttpRequestsConfigurer.AuthorizedUrl)authz.requestMatchers(new String[]{"/api/convert/login"})).permitAll().anyRequest()).authenticated();
+         ((AuthorizeHttpRequestsConfigurer.AuthorizedUrl)((AuthorizeHttpRequestsConfigurer.AuthorizedUrl)authz.requestMatchers(new String[]{"/parsemt"})).permitAll().anyRequest()).authenticated();
       }).oauth2ResourceServer((oauth2) -> {
          oauth2.jwt((jwt) -> {
             jwt.jwtAuthenticationConverter(this.jwtAuthenticationConverter());

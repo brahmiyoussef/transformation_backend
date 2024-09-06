@@ -40,19 +40,17 @@ import jakarta.xml.bind.annotation.XmlValue;
 public class ActiveOrHistoricCurrencyAndAmount {
 
     @XmlValue
-    protected BigDecimal value;
+    protected String value;
     @XmlAttribute(name = "Ccy", required = true)
     protected String ccy;
 
     /**
      * Obtient la valeur de la propriété value.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigDecimal }
-     *     
+     *
+     * @return possible object is
+     * {@link BigDecimal }
      */
-    public BigDecimal getValue() {
+    public String getValue() {
         return value;
     }
 
@@ -64,7 +62,7 @@ public class ActiveOrHistoricCurrencyAndAmount {
      *     {@link BigDecimal }
      *     
      */
-    public void setValue(BigDecimal value) {
+    public void setValue(String value) {
         this.value = value;
     }
 

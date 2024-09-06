@@ -161,7 +161,7 @@ public class CreditTransferTransaction64 {
     @XmlElement(name = "InstdAmt")
     protected ActiveOrHistoricCurrencyAndAmount instdAmt;
     @XmlElement(name = "XchgRate")
-    protected BigDecimal xchgRate;
+    protected String xchgRate;
     @XmlElement(name = "ChrgBr", required = true)
     @XmlSchemaType(name = "string")
     protected ChargeBearerType1Code chrgBr;
@@ -478,13 +478,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Obtient la valeur de la propriété xchgRate.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigDecimal }
-     *     
+     *
+     * @return possible object is
+     * {@link BigDecimal }
      */
-    public BigDecimal getXchgRate() {
+    public String getXchgRate() {
         return xchgRate;
     }
 
@@ -496,7 +494,7 @@ public class CreditTransferTransaction64 {
      *     {@link BigDecimal }
      *     
      */
-    public void setXchgRate(BigDecimal value) {
+    public void setXchgRate(String value) {
         this.xchgRate = value;
     }
 
