@@ -13,9 +13,10 @@ public class Field57AMapper {
             System.out.println("Financial Institution Identification is not initialized.");
             return;
         }
-
+        System.out.println("Financial Institution Identification Code is: " + field57A.getPartyIdentifier());
         // Set the identifierCode in the existing BranchAndFinancialInstitutionIdentification8 instance
         if (field57A.getIdentifierCode() != null) {
+            System.out.println("Financial Institution Identification Code is: " + field57A.getIdentifierCode());
             branchAndFinInstId.getFinInstnId().setBICFI(field57A.getIdentifierCode());
         }
 

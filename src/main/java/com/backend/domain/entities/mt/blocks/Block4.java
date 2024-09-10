@@ -9,7 +9,6 @@
 package com.backend.domain.entities.mt.blocks;
 
 import com.backend.domain.entities.mt.fields.*;
-import com.backend.domain.entities.mt.message.ObjectFactory;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlType;
@@ -83,18 +82,18 @@ public class Block4 {
     protected Field53AType field53A;
     protected Field54AType field54A;
     protected Field55AType field55A;
-    protected Field53AType field53B;
-    protected Field54AType field54B;
-    protected Field55AType field55B;
-    protected Field53AType field53D;
-    protected Field54AType field54D;
-    protected Field55AType field55D;
+    protected Field53BType field53B;
+    protected Field54BType field54B;
+    protected Field55BType field55B;
+    protected Field53DType field53D;
+    protected Field54DType field54D;
+    protected Field55DType field55D;
     protected Field56AType field56A;
     protected String field56C;
     protected Field56DType field56D;
     protected Field57AType field57A;
     protected Field57BType field57B;
-    protected String field57C;
+    protected Field57CType field57C;
     protected Field57DType field57D;
     protected Field59Type field59;
     protected Field59AType field59A;
@@ -103,7 +102,7 @@ public class Block4 {
     protected String field71A;
     protected Field71FType field71F;
     protected Field71GType field71G;
-    protected String field72;
+    protected Field72Type field72;
     protected String field77B;
 
     private static final Logger LOGGER = Logger.getLogger(Block4.class.getName());
@@ -596,13 +595,11 @@ public class Block4 {
 
     /**
      * Obtient la valeur de la propriété field53B.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Field53AType }
-     *     
+     *
+     * @return possible object is
+     * {@link Field53AType }
      */
-    public Field53AType getField53B() {
+    public Field53BType getField53B() {
         return field53B;
     }
 
@@ -614,19 +611,17 @@ public class Block4 {
      *     {@link Field53AType }
      *     
      */
-    public void setField53B(Field53AType value) {
+    public void setField53B(Field53BType value) {
         this.field53B = value;
     }
 
     /**
      * Obtient la valeur de la propriété field54B.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Field54AType }
-     *     
+     *
+     * @return possible object is
+     * {@link Field54AType }
      */
-    public Field54AType getField54B() {
+    public Field54BType getField54B() {
         return field54B;
     }
 
@@ -638,19 +633,17 @@ public class Block4 {
      *     {@link Field54AType }
      *     
      */
-    public void setField54B(Field54AType value) {
+    public void setField54B(Field54BType value) {
         this.field54B = value;
     }
 
     /**
      * Obtient la valeur de la propriété field55B.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Field55AType }
-     *     
+     *
+     * @return possible object is
+     * {@link Field55AType }
      */
-    public Field55AType getField55B() {
+    public Field55BType getField55B() {
         return field55B;
     }
 
@@ -662,19 +655,17 @@ public class Block4 {
      *     {@link Field55AType }
      *     
      */
-    public void setField55B(Field55AType value) {
+    public void setField55B(Field55BType value) {
         this.field55B = value;
     }
 
     /**
      * Obtient la valeur de la propriété field53D.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Field53AType }
-     *     
+     *
+     * @return possible object is
+     * {@link Field53AType }
      */
-    public Field53AType getField53D() {
+    public Field53DType getField53D() {
         return field53D;
     }
 
@@ -686,19 +677,17 @@ public class Block4 {
      *     {@link Field53AType }
      *     
      */
-    public void setField53D(Field53AType value) {
+    public void setField53D(Field53DType value) {
         this.field53D = value;
     }
 
     /**
      * Obtient la valeur de la propriété field54D.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Field54AType }
-     *     
+     *
+     * @return possible object is
+     * {@link Field54AType }
      */
-    public Field54AType getField54D() {
+    public Field54DType getField54D() {
         return field54D;
     }
 
@@ -710,19 +699,17 @@ public class Block4 {
      *     {@link Field54AType }
      *     
      */
-    public void setField54D(Field54AType value) {
+    public void setField54D(Field54DType value) {
         this.field54D = value;
     }
 
     /**
      * Obtient la valeur de la propriété field55D.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Field55AType }
-     *     
+     *
+     * @return possible object is
+     * {@link Field55AType }
      */
-    public Field55AType getField55D() {
+    public Field55DType getField55D() {
         return field55D;
     }
 
@@ -734,7 +721,7 @@ public class Block4 {
      *     {@link Field55AType }
      *     
      */
-    public void setField55D(Field55AType value) {
+    public void setField55D(Field55DType value) {
         this.field55D = value;
     }
 
@@ -860,13 +847,11 @@ public class Block4 {
 
     /**
      * Obtient la valeur de la propriété field57C.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Field57CType }
-     *     
+     *
+     * @return possible object is
+     * {@link Field57CType }
      */
-    public String getField57C() {
+    public Field57CType getField57C() {
         return field57C;
     }
 
@@ -878,7 +863,7 @@ public class Block4 {
      *     {@link Field57CType }
      *     
      */
-    public void setField57C(String value) {
+    public void setField57C(Field57CType value) {
         this.field57C = value;
     }
 
@@ -1076,13 +1061,11 @@ public class Block4 {
 
     /**
      * Obtient la valeur de la propriété field72.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Field72Type }
-     *     
+     *
+     * @return possible object is
+     * {@link Field72Type }
      */
-    public String getField72() {
+    public Field72Type getField72() {
         return field72;
     }
 
@@ -1094,7 +1077,7 @@ public class Block4 {
      *     {@link Field72Type }
      *     
      */
-    public void setField72(String value) {
+    public void setField72(Field72Type value) {
         this.field72 = value;
     }
 

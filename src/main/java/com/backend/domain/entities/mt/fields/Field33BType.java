@@ -13,6 +13,7 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
 
+import java.math.BigDecimal;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -27,7 +28,7 @@ public class Field33BType {
     @XmlElement(required = true)
     protected String currency;
     @XmlElement(required = true)
-    protected BigDecimal amount;
+    protected String amount;
 
 
     private static final String REGEX ="(\\w{3})(\\d{6,})(,\\d{2})";
@@ -44,7 +45,7 @@ public class Field33BType {
             Field33BType field = new Field33BType();
             // Extract the groups from the matcher
             field.currency = matcher.group(1); // Corresponds to (/4!)
-            field.amount =new BigDecimal(matcher.group(2)) ; // Corresponds to (n1!)
+            field.amount = String.valueOf(new BigDecimal(matcher.group(2))); // Corresponds to (n1!)
             return field;
         } else {
             System.err.println("Failed to parse value: '" + input + "' using pattern: " + REGEX);
@@ -99,7 +100,7 @@ public class Field33BType {
      *     
      */
     public void setAmount(BigDecimal value) {
-        this.amount = value;
+        this.amount = String.valueOf(value);
     }
 
 }
