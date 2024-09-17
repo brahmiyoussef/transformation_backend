@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<filiere>
+    <etudiants>
+        <etudiant>
+            <nom>Dupont</nom>
+            <prenom>Jean</prenom>
+            <anneeEtude>2</anneeEtude>
+        </etudiant>
+        <etudiant>
+            <nom>Durand</nom>
+            <prenom>Marie</prenom>
+            <anneeEtude>3</anneeEtude>
+        </etudiant>
+    </etudiants>
+</filiere>
