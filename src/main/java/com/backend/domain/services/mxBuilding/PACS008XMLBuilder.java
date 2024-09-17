@@ -16,6 +16,7 @@ public class PACS008XMLBuilder {
             Marshaller marshaller = context.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
             marshaller.marshal(pacs008Document, new File(outputPath));
+            marshaller.marshal(pacs008Document, System.out);
         } catch (JAXBException e) {
             e.printStackTrace();
         }

@@ -13,10 +13,14 @@ public class Field50Mapper {
     }
 
 
-    public  static void mapField50A(Field50AType field50A , TaxParty1 cdtr)
-    {
+public static void mapField50A(Field50AType field50A, TaxParty1 cdtr) {
+    if (field50A.getIdentifierCode() != null) {
         cdtr.setTaxId(field50A.getIdentifierCode());
+        System.out.println("Good: IdentifierCode in Field50A is not null.");
+    } else {
+        System.out.println("Warning: IdentifierCode in Field50A is null.");
     }
+}
 
     public static void mapField50K(Field50KType field50K , TaxParty1 cdtr)
     {

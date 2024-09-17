@@ -31,10 +31,15 @@ public class MTtoMXMappingService {
         if (message.getBlock4() != null && message.getBlock4().getField36() != null) {
             Field36Mapper.mapeField36(message.getBlock4().getField36() ,crdTrs);
             System.out.println("Mapped Field36 to crdTrs: " + crdTrs.getXchgRate());
+        }else {
+            System.out.println("Mapped Field36 is null");
         }
         if (message.getBlock4() != null && message.getBlock4().getField50A() != null) {
-            Field50Mapper.mapField50A(message.getBlock4().getField50A(),cdtr);
-            System.out.println("Mapped Field50A to TaxParty1 : " + cdtr.getTaxId());
+            System.out.println("Field50A Raw Value: " + message.getBlock4().getField50A().getIdentifierCode());
+            Field50Mapper.mapField50A(message.getBlock4().getField50A(), cdtr);
+            System.out.println("Mapped Field50A to TaxParty1: " + cdtr.getTaxId());
+        } else {
+            System.out.println("Field50A is null.");
         }
         if (message.getBlock4() != null && message.getBlock4().getField50F() != null) {
             Field50Mapper.mapField50F(message.getBlock4().getField50F(),cdtr);
@@ -172,13 +177,41 @@ public class MTtoMXMappingService {
         System.out.println("  Tax ID: " + cdtr.getTaxId());
         System.out.println("  Registration ID: " + cdtr.getRegnId());
         System.out.println("  Tax Type: " + cdtr.getTaxTp());
-        // Set the mapped data into the document
+
+        if (groupHeader.getTtlIntrBkSttlmAmt() == null) {
+            System.out.println("Error: TtlIntrBkSttlmAmt is missing.");
+        }
+
+              // Set objects into the document
         FIToFICustomerCreditTransferV12 creditTransfer = new FIToFICustomerCreditTransferV12();
         creditTransfer.setGrpHdr(groupHeader);
-        creditTransfer.getCdtTrfTxInf().add(crdTrs);
 
+        if (crdTrs != null && crdTrs.getXchgRate() != null) {
+            creditTransfer.getCdtTrfTxInf().add(crdTrs);
+        } else {
+            System.out.println("Error: Credit Transfer Transaction or Exchange Rate is missing.");
+        }
+        // Ensure crdTrs (CreditTransferTransaction64) is added to the list
+        if (crdTrs != null && crdTrs.getXchgRate() != null) {
+            // Add to the list
+            creditTransfer.getCdtTrfTxInf().add(crdTrs);
+            System.out.println("Added CreditTransferTransaction64 with exchange rate: " + crdTrs.getXchgRate());
+        } else {
+            System.out.println("Error: Credit Transfer Transaction or Exchange Rate is missing.");
+        }
 
+        if (splmtryData.getEnvlp() != null && splmtryData.getEnvlp().getAny() != null) {
+            creditTransfer.getSplmtryData().add(splmtryData);
+        } else {
+            System.out.println("Error: SupplementaryData is missing.");
+        }
         document.setFIToFICstmrCdtTrf(creditTransfer);
+
+
+        System.out.println(STR."document \{document.getFIToFICstmrCdtTrf().getCdtTrfTxInf().size()}");
+        System.out.println("CdtTrfTxInf size: " + creditTransfer.getCdtTrfTxInf().size());
+        System.out.println("SplmtryData size: " + creditTransfer.getSplmtryData().size());
+
 
         return document;
     }

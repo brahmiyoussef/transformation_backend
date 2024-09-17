@@ -13,6 +13,8 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 
 /**
  * <p>Classe Java pour Document complex type.
@@ -37,6 +39,7 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(name = "Document", propOrder = {
     "fiToFICstmrCdtTrf"
 })
+@XmlRootElement(name = "Document")
 public class Document {
 
     @XmlElement(name = "FIToFICstmrCdtTrf", required = true)
