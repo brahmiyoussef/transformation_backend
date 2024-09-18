@@ -11,6 +11,7 @@ package com.backend.domain.entities.mx;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.datatype.XMLGregorianCalendar;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -134,6 +135,7 @@ import jakarta.xml.bind.annotation.XmlType;
     "rmtInf",
     "splmtryData"
 })
+@XmlRootElement
 public class CreditTransferTransaction64 {
 
     @XmlElement(name = "PmtId", required = true)

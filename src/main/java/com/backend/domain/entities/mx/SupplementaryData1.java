@@ -13,6 +13,8 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 
 /**
  * <p>Classe Java pour SupplementaryData1 complex type.
@@ -39,6 +41,7 @@ import jakarta.xml.bind.annotation.XmlType;
     "plcAndNm",
     "envlp"
 })
+@XmlRootElement
 public class SupplementaryData1 {
 
     @XmlElement(name = "PlcAndNm")

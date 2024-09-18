@@ -20,6 +20,7 @@ import java.math.BigDecimal;
         "instgAgt",
         "instdAgt"
 })
+@XmlRootElement
 public class GroupHeader113 {
 
     @XmlElement(name = "MsgId", required = true)

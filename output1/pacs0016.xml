@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Document>
+    <FIToFICstmrCdtTrf>
+        <grpHdr>
+            <intrBkSttlmDt>2023-05-23T00:00:00.000+01:00</intrBkSttlmDt>
+            <ttlIntrBkSttlmAmt>
+                <ccy>EUR</ccy>
+                <value>10000050</value>
+            </ttlIntrBkSttlmAmt>
+        </grpHdr>
+    </FIToFICstmrCdtTrf>
+</Document>

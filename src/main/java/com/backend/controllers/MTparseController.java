@@ -24,15 +24,15 @@ public class MTparseController {
 
     @Autowired
     private MTtoMXMappingService mtToMxMappingService;  // Inject the new service
-<<<<<<< HEAD
-    @Autowired
-    private PACS008XMLBuilder xmlBuilder;
-=======
 
     @Autowired
     private PACS008XMLBuilder xmlBuilder;
 
->>>>>>> 50a0be4c301418551c6ee0f04ba512bb58ddcb2e
+
+    @Autowired
+    private PACS008XMLBuilder buildXML;
+
+
     @GetMapping("/parsemt")
     public Message parseMtMessage(@RequestParam String mtMessage) {
         // Call the MtMessageService to parse the message
@@ -71,7 +71,7 @@ public class MTparseController {
         // Build XML file
 
 
-        String output = "output/pacs008.xml";
+        String output = "output1/pacs0016.xml";
         xmlBuilder.buildXML(document, output);
 
         return message;
