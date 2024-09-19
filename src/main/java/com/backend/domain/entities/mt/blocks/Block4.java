@@ -66,6 +66,52 @@ import java.util.logging.Logger;
 })
 public class Block4 {
 
+    @Override
+    public String toString() {
+        return "Block4{" +
+                "field13C=" + field13C +
+                ", field20='" + field20 + '\'' +
+                ", field23B='" + field23B + '\'' +
+                ", field23E=" + field23E +
+                ", field26T='" + field26T + '\'' +
+                ", field32A=" + field32A +
+                ", field33B=" + field33B +
+                ", field36='" + field36 + '\'' +
+                ", field50A=" + field50A +
+                ", field50F=" + field50F +
+                ", field50K=" + field50K +
+                ", field51A=" + field51A +
+                ", field52A=" + field52A +
+                ", field52D=" + field52D +
+                ", field53A=" + field53A +
+                ", field54A=" + field54A +
+                ", field55A=" + field55A +
+                ", field53B=" + field53B +
+                ", field54B=" + field54B +
+                ", field55B=" + field55B +
+                ", field53D=" + field53D +
+                ", field54D=" + field54D +
+                ", field55D=" + field55D +
+                ", field56A=" + field56A +
+                ", field56C='" + field56C + '\'' +
+                ", field56D=" + field56D +
+                ", field57A=" + field57A +
+                ", field57B=" + field57B +
+                ", field57C='" + field57C + '\'' +
+                ", field57D=" + field57D +
+                ", field59=" + field59 +
+                ", field59A=" + field59A +
+                ", field59F=" + field59F +
+                ", field70='" + field70 + '\'' +
+                ", field71A='" + field71A + '\'' +
+                ", field71F=" + field71F +
+                ", field71G=" + field71G +
+                ", field72='" + field72 + '\'' +
+                ", field77B='" + field77B + '\'' +
+                '}';
+    }
+
+
     protected Field13CType field13C;
     protected String field20;
     protected String field23B;
@@ -99,7 +145,7 @@ public class Block4 {
     protected Field59Type field59;
     protected Field59AType field59A;
     protected Field59FType field59F;
-    protected String field70;
+    protected Field70Type field70;
     protected String field71A;
     protected Field71FType field71F;
     protected Field71GType field71G;
@@ -986,7 +1032,7 @@ public class Block4 {
      *     {@link Field70Type }
      *     
      */
-    public String getField70() {
+    public Field70Type getField70() {
         return field70;
     }
 
@@ -998,7 +1044,7 @@ public class Block4 {
      *     {@link Field70Type }
      *     
      */
-    public void setField70(String value) {
+    public void setField70(Field70Type value) {
         this.field70 = value;
     }
 

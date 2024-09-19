@@ -29,21 +29,12 @@ public class BackendApplication {
         // Extract blocks
         String[] blocks = blockExtractor.extractBlocks(mt103Message);
 
-
-
-
-
         parser mtMessageService = new parser();
-
 
         Message message = mtMessageService.parseMtMessage(mt103Message);
 
         System.out.println("Le msg est: " + message);
 
-
-
     }
-
-
 
 }

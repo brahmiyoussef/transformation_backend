@@ -10,17 +10,44 @@ import com.backend.domain.entities.mt.blocks.Block2Type;
 import com.backend.domain.entities.mt.blocks.Block3Type;
 import com.backend.domain.entities.mt.blocks.Block4;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 @Service
 public class parser {
+    /**
+     * Validates the basic structure of the MT message (block presence).
+     *
+     * @param mtMessage The raw MT message as a string.
+     * @return true if the message contains the correct structure, false otherwise.
+     */
+    public boolean isValidMTMessageFormat(String mtMessage) {
+        // Define a regular expression to check for mandatory blocks: {1:}, {2:}, and {4:}
+        String mtRegex = "\\{1:.*\\}\\{2:.*\\}(\\{3:.*\\})?\\{4:.*\\}";
 
+        // Use a regex pattern matcher to validate the format
+        Pattern pattern = Pattern.compile(mtRegex, Pattern.DOTALL);
+        Matcher matcher = pattern.matcher(mtMessage);
 
+        return matcher.matches(); // Returns true if the MT message matches the expected format
+    }
 
+    /**
+     * Parses the MT message, extracts blocks, and returns a populated Message object.
+     *
+     * @param mtMessage The raw MT message as a string.
+     * @return Message object containing the parsed blocks.
+     */
 
     public Message parseMtMessage(String mtMessage) {
-        // Extract blocks from the MT message
+        // Step 1: Validate MT message format before parsing
+        if (!isValidMTMessageFormat(mtMessage)) {
+            throw new IllegalArgumentException("Invalid MT message format.");
+        }
+        // Extract blocks from the MT message, parse, and populate the Message object
         BlockExtractor blockExtractor= new BlockExtractor();
-        String[] blocks = BlockExtractor.extractBlocks(mtMessage);
+        String[] blocks = BlockExtractor.extractBlocks(mtMessage); // Extract string message (mt)
          ObjectFactory objectFactory= new ObjectFactory();
         // Create a new Message instance using the ObjectFactory
         Message message = objectFactory.createMessage();
@@ -39,8 +66,10 @@ public class parser {
             }
         }
         if (blocks[2] != null) {
-
-            message.setBlock3(blocks[2]);
+            Block3Type block3 = objectFactory.createBlock3Type();
+            if (block3.parse(blocks[2])) {
+                message.setBlock3(block3);
+            }
 
         }
         if (blocks[3] != null) {
@@ -56,6 +85,11 @@ public class parser {
                 // message.setBlock4(null);
             }            message.setBlock4(block4);
         }
+        // Logic to parse the message and populate blocks
+        System.out.println("Parsed Block1: " + message.getBlock1());
+        System.out.println("Parsed Block2: " + message.getBlock2());
+        System.out.println("Parsed Block3: " + message.getBlock3());
+        System.out.println("Parsed Block4: " + message.getBlock4());
         return message;
     }
 }

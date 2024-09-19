@@ -50,6 +50,15 @@ import jakarta.xml.bind.annotation.XmlType;
     "numberAddress"
 })
 public class Field50FType {
+    @Override
+    public String toString() {
+        return "Field50FType{" +
+                "account='" + account + '\'' +
+                ", codePart='" + codePart + '\'' +
+                ", numberAddress='" + numberAddress + '\'' +
+                '}';
+    }
+
 
     protected String account;
     protected String codePart;

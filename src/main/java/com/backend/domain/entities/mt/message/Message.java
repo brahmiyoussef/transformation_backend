@@ -17,6 +17,7 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlType;
+import org.springframework.cglib.core.Block;
 
 
 /**
@@ -56,7 +57,7 @@ public class Message {
     @XmlElement(required = true)
     protected Block2Type block2;
     @XmlElement(required = true)
-    protected String block3;
+    protected Block3Type block3;
     @XmlElement(required = true)
     protected Block4 block4;
 
@@ -110,13 +111,11 @@ public class Message {
 
     /**
      * Obtient la valeur de la propriété block3.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Block3Type }
-     *     
+     *
+     * @return possible object is
+     * {@link Block3Type }
      */
-    public String getBlock3() {
+    public Block3Type getBlock3() {
         return block3;
     }
 
@@ -128,7 +127,7 @@ public class Message {
      *     {@link Block3Type }
      *     
      */
-    public void setBlock3(String value) {
+    public void setBlock3(Block3Type value) {
         this.block3 = value;
     }
 

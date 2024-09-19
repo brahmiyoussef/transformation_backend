@@ -42,6 +42,13 @@ import java.util.regex.Pattern;
     "location"
 })
 public class Field53BType {
+    @Override
+    public String toString() {
+        return "Field53BType{" +
+                "partyIdentifier='" + partyIdentifier + '\'' +
+                ", location='" + location + '\'' +
+                '}';
+    }
 
     protected String partyIdentifier;
     protected String location;

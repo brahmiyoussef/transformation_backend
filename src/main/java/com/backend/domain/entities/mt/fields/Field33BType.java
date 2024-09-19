@@ -24,6 +24,13 @@ import java.util.regex.Pattern;
     "amount"
 })
 public class Field33BType {
+    @Override
+    public String toString() {
+        return "Field33BType{" +
+                "currency='" + currency + '\'' +
+                ", amount=" + amount +
+                '}';
+    }
 
     @XmlElement(required = true)
     protected String currency;

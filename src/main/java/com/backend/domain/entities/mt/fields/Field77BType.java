@@ -40,6 +40,12 @@ import jakarta.xml.bind.annotation.XmlType;
     "narrativeLine"
 })
 public class Field77BType {
+    @Override
+    public String toString() {
+        return "Field77BType{" +
+                "narrativeLine=" + narrativeLine +
+                '}';
+    }
 
     @XmlElement(required = true)
     protected List<String> narrativeLine;

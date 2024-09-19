@@ -44,12 +44,20 @@ import java.util.regex.Pattern;
     "identifierCode"
 })
 public class Field59AType {
+    @Override
+    public String toString() {
+        return "Field59AType{" +
+                "account='" + account + '\'' +
+                ", identifierCode='" + identifierCode + '\'' +
+                '}';
+    }
+
 
     protected String account;
     @XmlElement(required = true)
     protected String identifierCode;
     private static final String REGEX =
-            "\\/(\\w{0,34})\\s([A-Z]{0,11})";
+            "([A-Za-z0-9]{0,34})([A-Z]{4}[A-Z]{2}[A-Za-z0-9]{2}([A-Za-z0-9]{3}))?";
     public Field59AType parse(String input) {
         Pattern pattern = Pattern.compile(REGEX);
         Matcher matcher = pattern.matcher(input);

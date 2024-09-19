@@ -89,6 +89,16 @@ import java.util.regex.Pattern;
     "sequenceNumber"
 })
 public class Block1Type {
+    @Override
+    public String toString() {
+        return "Block1Type {" +
+                "applicationId='" + applicationId + '\'' +
+                ", serviceId='" + serviceId + '\'' +
+                ", logicalTerminal='" + logicalTerminal + '\'' +
+                ", sessionNumber='" + sessionNumber + '\'' +
+                ", sequenceNumber='" + sequenceNumber + '\'' +
+                '}';
+    }
 
     @XmlElement(required = true)
     protected String applicationId;

@@ -48,6 +48,17 @@ import java.util.regex.Pattern;
 })
 public class Field32AType {
 
+
+    // Override the toString() method to provide a clear string representation
+    @Override
+    public String toString() {
+        return "Field32AType{" +
+                "date='" + date + '\'' +
+                ", currency='" + currency + '\'' +
+                ", amount='" + amount + '\'' +
+                '}';
+    }
+
     @XmlElement(required = true)
     protected String date;
     @XmlElement(required = true)

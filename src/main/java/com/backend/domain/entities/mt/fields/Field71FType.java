@@ -44,6 +44,14 @@ import java.util.regex.Pattern;
     "amount"
 })
 public class Field71FType {
+    @Override
+    public String toString() {
+        return "Field71FType{" +
+                "currency='" + currency + '\'' +
+                ", amount=" + amount +
+                '}';
+    }
+
 
     @XmlElement(required = true)
     protected String currency;
@@ -52,13 +60,13 @@ public class Field71FType {
 
 
     private static final String REGEX ="(\\w{3})(\\d{15})";
-    public Field71GType parse(String input) {
+    public Field71FType parse(String input) {
 
         Pattern pattern = Pattern.compile(REGEX);
         Matcher matcher = pattern.matcher(input);
 
         if (matcher.matches()) {
-            Field71GType field=new Field71GType();
+            Field71FType field=new Field71FType();
             // Extract the groups from the matcher
             field.currency = matcher.group(1); // Corresponds to (/4!)
             field.amount =new BigDecimal(matcher.group(2)); // Corresponds to (n1!)

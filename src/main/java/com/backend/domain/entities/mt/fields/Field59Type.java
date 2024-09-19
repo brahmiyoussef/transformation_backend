@@ -45,6 +45,14 @@ import jakarta.xml.bind.annotation.XmlType;
     "numberAddress"
 })
 public class Field59Type {
+    @Override
+    public String toString() {
+        return "Field59Type{" +
+                "account='" + account + '\'' +
+                ", numberAddress='" + numberAddress + '\'' +
+                '}';
+    }
+
 
     protected String account;
     @XmlElement(name = "NumberAddress")

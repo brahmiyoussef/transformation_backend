@@ -41,6 +41,14 @@ import jakarta.xml.bind.annotation.XmlType;
     "narrative"
 })
 public class Field72Type {
+    @Override
+    public String toString() {
+        return "Field72Type{" +
+                "code='" + code + '\'' +
+                ", narrative=" + narrative +
+                '}';
+    }
+
 
     protected String code;
     protected List<String> narrative;

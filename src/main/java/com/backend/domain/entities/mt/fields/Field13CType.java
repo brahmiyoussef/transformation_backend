@@ -75,6 +75,16 @@ import java.util.regex.Pattern;
     "timeOffset"
 })
 public class Field13CType{
+    @Override
+    public String toString() {
+        return "Field13CType{" +
+                "code='" + code + '\'' +
+                ", timeIndication='" + timeIndication + '\'' +
+                ", sign='" + sign + '\'' +
+                ", timeOffset='" + timeOffset + '\'' +
+                '}';
+    }
+
 
     @XmlElement(required = true)
     protected String code;

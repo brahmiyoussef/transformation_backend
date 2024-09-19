@@ -51,6 +51,15 @@ import java.util.regex.Pattern;
 })
 public class Field23EType {
 
+    @Override
+    public String toString() {
+        return "Field23EType{" +
+                "instructionCode='" + instructionCode + '\'' +
+                ", additionalInformation='" + additionalInformation + '\'' +
+                '}';
+    }
+
+
     @XmlElement(required = true)
     protected String instructionCode;
     protected String additionalInformation;

@@ -38,6 +38,13 @@ import jakarta.xml.bind.annotation.XmlType;
     "partyIdentifier"
 })
 public class Field56CType {
+    @Override
+    public String toString() {
+        return "Field56CType{" +
+                "partyIdentifier=" + partyIdentifier +
+                '}';
+    }
+
 
     protected PartyIdentifierType partyIdentifier;
 

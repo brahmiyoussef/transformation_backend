@@ -43,6 +43,14 @@ import java.util.regex.Pattern;
     "identifierCode"
 })
 public class Field56AType {
+    @Override
+    public String toString() {
+        return "Field56AType{" +
+                "partyIdentifier='" + partyIdentifier + '\'' +
+                ", identifierCode='" + identifierCode + '\'' +
+                '}';
+    }
+
 
     protected String partyIdentifier;
     @XmlElement(required = true)

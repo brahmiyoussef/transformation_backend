@@ -44,6 +44,14 @@ import java.util.regex.Pattern;
     "amount"
 })
 public class Field71GType {
+    @Override
+    public String toString() {
+        return "Field71GType{" +
+                "currency='" + currency + '\'' +
+                ", amount=" + amount +
+                '}';
+    }
+
 
     @XmlElement(required = true)
     protected String currency;
