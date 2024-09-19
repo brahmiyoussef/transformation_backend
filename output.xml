@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Document>
     <FIToFICstmrCdtTrf>
+        <cdtTrfTxInf>
+            <intrBkSttlmAmt>
+                <ccy>USD</ccy>
+                <value>1000.5</value>
+            </intrBkSttlmAmt>
+            <intrBkSttlmDt>2024-09-19</intrBkSttlmDt>
+            <pmtId>
+                <endToEndId>E2EID12345</endToEndId>
+            </pmtId>
+        </cdtTrfTxInf>
         <grpHdr>
             <creDtTm>2024-09-18T15:51:14</creDtTm>
             <instgAgt>DEUTDEFFXXX</instgAgt>
             <intrBkSttlmDt>2024-09-19</intrBkSttlmDt>
             <msgDefIdr>pacs.008.001.02</msgDefIdr>
             <msgId>MSGID12345</msgId>
+            <nbOfTxs>1</nbOfTxs>
         </grpHdr>
     </FIToFICstmrCdtTrf>
 </Document>

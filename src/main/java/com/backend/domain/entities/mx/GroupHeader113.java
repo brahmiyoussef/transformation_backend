@@ -39,6 +39,7 @@ public class GroupHeader113 {
     @XmlElement(name = "NbOfTxs", required = true)
     protected String nbOfTxs;
 
+
     @XmlElement(name = "CtrlSum")
     protected BigDecimal ctrlSum;
 
@@ -65,6 +66,9 @@ public class GroupHeader113 {
     public String getMsgId() {
         return msgId;
     }
+
+    public String getNbOfTxs() {return nbOfTxs;}
+
 
     public void setMsgId(String value) {
         this.msgId = value;

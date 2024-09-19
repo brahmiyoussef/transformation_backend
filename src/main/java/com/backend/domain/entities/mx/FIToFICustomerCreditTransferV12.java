@@ -47,7 +47,7 @@ public class FIToFICustomerCreditTransferV12 {
     @XmlElement(name = "GrpHdr", required = true)
     protected GroupHeader113 grpHdr;
     @XmlElement(name = "CdtTrfTxInf", required = true)
-    protected List<CreditTransferTransaction64> cdtTrfTxInf;
+    protected List<CreditTransferTransaction64> cdtTrfTxInf = new ArrayList<>(); // Initialisé ici
     @XmlElement(name = "SplmtryData")
     protected List<SupplementaryData1> splmtryData;
 
@@ -103,7 +103,9 @@ public class FIToFICustomerCreditTransferV12 {
         }
         return this.cdtTrfTxInf;
     }
-
+    public void setCdtTrfTxInf(List<CreditTransferTransaction64> cdtTrfTxInf) {
+        this.cdtTrfTxInf = cdtTrfTxInf;
+    }
     /**
      * Gets the value of the splmtryData property.
      * 
