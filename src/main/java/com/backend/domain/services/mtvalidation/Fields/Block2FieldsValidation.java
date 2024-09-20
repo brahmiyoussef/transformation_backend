@@ -52,11 +52,11 @@ public class Block2FieldsValidation {
     }
 
     private boolean validateReceiverAddress(String receiverAddress) {
-        return receiverAddress != null && receiverAddress.matches("[A-Z0-9]{12}");
+        return receiverAddress != null && receiverAddress.matches("[A-Z0-9]{1,12}");
     }
 
     private boolean validateMessagePriority(String messagePriority) {
-        return messagePriority == null || messagePriority.matches("[SUN]");
+        return messagePriority == null || messagePriority.matches("\\d{6}");
     }
 
     private boolean validateDeliveryMonitoring(String deliveryMonitoring) {
@@ -72,14 +72,14 @@ public class Block2FieldsValidation {
     }
 
     private boolean validateMir(String mir) {
-        return mir != null && mir.matches("[0-9]{6}[A-Z0-9]{12}[0-9]{4}[0-9]{6}");
+        return mir != null && mir.matches("[0-9 A-Z]{12}");
     }
 
     private boolean validateOutputDate(String outputDate) {
-        return outputDate != null && outputDate.matches("\\d{6}");
+        return outputDate != null && outputDate.matches("[0-9]{4}");
     }
 
     private boolean validateOutputTime(String outputTime) {
-        return outputTime != null && outputTime.matches("\\d{4}");
+        return outputTime != null && outputTime.matches("[0-9]{6}");
     }
 }
