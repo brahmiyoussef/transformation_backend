@@ -71,7 +71,7 @@ public class MTparseController {
         // Build XML file
 
 
-        String output = "output1/pacs0016.xml";
+        String output = "output1/pacs0012.xml";
         xmlBuilder.buildXML(document, output);
 
         return message;

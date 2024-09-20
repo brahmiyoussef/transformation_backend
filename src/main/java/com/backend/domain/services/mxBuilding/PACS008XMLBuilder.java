@@ -1,6 +1,9 @@
 package com.backend.domain.services.mxBuilding;
 
+import com.backend.domain.entities.mx.CreditTransferTransaction64;
 import com.backend.domain.entities.mx.Document;
+import com.backend.domain.entities.mx.FIToFICustomerCreditTransferV12;
+import com.backend.domain.entities.mx.GroupHeader113;
 import org.springframework.stereotype.Service;
 
 import javax.xml.bind.JAXBContext;
@@ -12,7 +15,11 @@ public class PACS008XMLBuilder {
 
     public void buildXML(Document pacs008Document, String outputPath) {
         try {
-            JAXBContext context = JAXBContext.newInstance(Document.class);
+            JAXBContext context = JAXBContext.newInstance(
+                    Document.class
+
+                    // Add any other classes you are using in the XML structure
+            );
             Marshaller marshaller = context.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
             marshaller.marshal(pacs008Document, new File(outputPath));

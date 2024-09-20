@@ -1,8 +1,8 @@
 //
-// Ce fichier a été généré par Eclipse Implementation of JAXB, v3.0.0 
-// Voir https://eclipse-ee4j.github.io/jaxb-ri 
-// Toute modification apportée à ce fichier sera perdue lors de la recompilation du schéma source. 
-// Généré le : 2024.08.28 à 05:51:50 PM WEST 
+// Ce fichier a été généré par Eclipse Implementation of JAXB, v3.0.0
+// Voir https://eclipse-ee4j.github.io/jaxb-ri
+// Toute modification apportée à ce fichier sera perdue lors de la recompilation du schéma source.
+// Généré le : 2024.08.28 à 05:51:50 PM WEST
 //
 
 
@@ -22,9 +22,9 @@ import jakarta.xml.bind.annotation.XmlType;
 
 /**
  * <p>Classe Java pour CreditTransferTransaction64 complex type.
- * 
+ *
  * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="CreditTransferTransaction64"&gt;
  *   &lt;complexContent&gt;
@@ -82,8 +82,8 @@ import jakarta.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CreditTransferTransaction64", propOrder = {
@@ -240,11 +240,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Obtient la valeur de la propriété pmtId.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link PaymentIdentification13 }
-     *     
+     *
      */
     public PaymentIdentification13 getPmtId() {
         return pmtId;
@@ -252,11 +252,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Définit la valeur de la propriété pmtId.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link PaymentIdentification13 }
-     *     
+     *
      */
     public void setPmtId(PaymentIdentification13 value) {
         this.pmtId = value;
@@ -264,11 +264,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Obtient la valeur de la propriété pmtTpInf.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link PaymentTypeInformation28 }
-     *     
+     *
      */
     public PaymentTypeInformation28 getPmtTpInf() {
         return pmtTpInf;
@@ -276,11 +276,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Définit la valeur de la propriété pmtTpInf.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link PaymentTypeInformation28 }
-     *     
+     *
      */
     public void setPmtTpInf(PaymentTypeInformation28 value) {
         this.pmtTpInf = value;
@@ -288,11 +288,9 @@ public class CreditTransferTransaction64 {
 
     /**
      * Obtient la valeur de la propriété intrBkSttlmAmt.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ActiveCurrencyAndAmount }
-     *     
+     *
+     * @return possible object is
+     * {@link ActiveCurrencyAndAmount }
      */
     public ActiveCurrencyAndAmount getIntrBkSttlmAmt() {
         return intrBkSttlmAmt;
@@ -300,11 +298,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Définit la valeur de la propriété intrBkSttlmAmt.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link ActiveCurrencyAndAmount }
-     *     
+     *
      */
     public void setIntrBkSttlmAmt(ActiveCurrencyAndAmount value) {
         this.intrBkSttlmAmt = value;
@@ -312,11 +310,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Obtient la valeur de la propriété intrBkSttlmDt.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link XMLGregorianCalendar }
-     *     
+     *
      */
     public XMLGregorianCalendar getIntrBkSttlmDt() {
         return intrBkSttlmDt;
@@ -324,11 +322,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Définit la valeur de la propriété intrBkSttlmDt.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link XMLGregorianCalendar }
-     *     
+     *
      */
     public void setIntrBkSttlmDt(XMLGregorianCalendar value) {
         this.intrBkSttlmDt = value;
@@ -336,11 +334,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Obtient la valeur de la propriété sttlmPrty.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link Priority3Code }
-     *     
+     *
      */
     public Priority3Code getSttlmPrty() {
         return sttlmPrty;
@@ -348,11 +346,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Définit la valeur de la propriété sttlmPrty.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link Priority3Code }
-     *     
+     *
      */
     public void setSttlmPrty(Priority3Code value) {
         this.sttlmPrty = value;
@@ -360,11 +358,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Obtient la valeur de la propriété sttlmTmIndctn.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link SettlementDateTimeIndication1 }
-     *     
+     *
      */
     public SettlementDateTimeIndication1 getSttlmTmIndctn() {
         return sttlmTmIndctn;
@@ -372,11 +370,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Définit la valeur de la propriété sttlmTmIndctn.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link SettlementDateTimeIndication1 }
-     *     
+     *
      */
     public void setSttlmTmIndctn(SettlementDateTimeIndication1 value) {
         this.sttlmTmIndctn = value;
@@ -384,11 +382,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Obtient la valeur de la propriété sttlmTmReq.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link SettlementTimeRequest2 }
-     *     
+     *
      */
     public SettlementTimeRequest2 getSttlmTmReq() {
         return sttlmTmReq;
@@ -396,11 +394,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Définit la valeur de la propriété sttlmTmReq.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link SettlementTimeRequest2 }
-     *     
+     *
      */
     public void setSttlmTmReq(SettlementTimeRequest2 value) {
         this.sttlmTmReq = value;
@@ -408,11 +406,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Obtient la valeur de la propriété accptncDtTm.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link XMLGregorianCalendar }
-     *     
+     *
      */
     public XMLGregorianCalendar getAccptncDtTm() {
         return accptncDtTm;
@@ -420,11 +418,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Définit la valeur de la propriété accptncDtTm.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link XMLGregorianCalendar }
-     *     
+     *
      */
     public void setAccptncDtTm(XMLGregorianCalendar value) {
         this.accptncDtTm = value;
@@ -432,11 +430,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Obtient la valeur de la propriété poolgAdjstmntDt.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link XMLGregorianCalendar }
-     *     
+     *
      */
     public XMLGregorianCalendar getPoolgAdjstmntDt() {
         return poolgAdjstmntDt;
@@ -444,11 +442,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Définit la valeur de la propriété poolgAdjstmntDt.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link XMLGregorianCalendar }
-     *     
+     *
      */
     public void setPoolgAdjstmntDt(XMLGregorianCalendar value) {
         this.poolgAdjstmntDt = value;
@@ -456,11 +454,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Obtient la valeur de la propriété instdAmt.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link ActiveOrHistoricCurrencyAndAmount }
-     *     
+     *
      */
     public ActiveOrHistoricCurrencyAndAmount getInstdAmt() {
         return instdAmt;
@@ -468,11 +466,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Définit la valeur de la propriété instdAmt.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link ActiveOrHistoricCurrencyAndAmount }
-     *     
+     *
      */
     public void setInstdAmt(ActiveOrHistoricCurrencyAndAmount value) {
         this.instdAmt = value;
@@ -490,11 +488,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Définit la valeur de la propriété xchgRate.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link BigDecimal }
-     *     
+     *
      */
     public void setXchgRate(String value) {
         this.xchgRate = value;
@@ -502,11 +500,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Obtient la valeur de la propriété chrgBr.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link ChargeBearerType1Code }
-     *     
+     *
      */
     public ChargeBearerType1Code getChrgBr() {
         return chrgBr;
@@ -514,11 +512,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Définit la valeur de la propriété chrgBr.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link ChargeBearerType1Code }
-     *     
+     *
      */
     public void setChrgBr(ChargeBearerType1Code value) {
         this.chrgBr = value;
@@ -526,25 +524,25 @@ public class CreditTransferTransaction64 {
 
     /**
      * Gets the value of the chrgsInf property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the Jakarta XML Binding object.
      * This is why there is not a <CODE>set</CODE> method for the chrgsInf property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getChrgsInf().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Charges16 }
-     * 
-     * 
+     *
+     *
      */
     public List<Charges16> getChrgsInf() {
         if (chrgsInf == null) {
@@ -555,11 +553,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Obtient la valeur de la propriété mndtRltdInf.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link CreditTransferMandateData1 }
-     *     
+     *
      */
     public CreditTransferMandateData1 getMndtRltdInf() {
         return mndtRltdInf;
@@ -567,11 +565,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Définit la valeur de la propriété mndtRltdInf.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link CreditTransferMandateData1 }
-     *     
+     *
      */
     public void setMndtRltdInf(CreditTransferMandateData1 value) {
         this.mndtRltdInf = value;
@@ -579,11 +577,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Obtient la valeur de la propriété prvsInstgAgt1.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link BranchAndFinancialInstitutionIdentification8 }
-     *     
+     *
      */
     public BranchAndFinancialInstitutionIdentification8 getPrvsInstgAgt1() {
         return prvsInstgAgt1;
@@ -591,11 +589,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Définit la valeur de la propriété prvsInstgAgt1.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link BranchAndFinancialInstitutionIdentification8 }
-     *     
+     *
      */
     public void setPrvsInstgAgt1(BranchAndFinancialInstitutionIdentification8 value) {
         this.prvsInstgAgt1 = value;
@@ -603,11 +601,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Obtient la valeur de la propriété prvsInstgAgt1Acct.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link CashAccount40 }
-     *     
+     *
      */
     public CashAccount40 getPrvsInstgAgt1Acct() {
         return prvsInstgAgt1Acct;
@@ -615,11 +613,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Définit la valeur de la propriété prvsInstgAgt1Acct.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link CashAccount40 }
-     *     
+     *
      */
     public void setPrvsInstgAgt1Acct(CashAccount40 value) {
         this.prvsInstgAgt1Acct = value;
@@ -627,11 +625,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Obtient la valeur de la propriété prvsInstgAgt2.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link BranchAndFinancialInstitutionIdentification8 }
-     *     
+     *
      */
     public BranchAndFinancialInstitutionIdentification8 getPrvsInstgAgt2() {
         return prvsInstgAgt2;
@@ -639,11 +637,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Définit la valeur de la propriété prvsInstgAgt2.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link BranchAndFinancialInstitutionIdentification8 }
-     *     
+     *
      */
     public void setPrvsInstgAgt2(BranchAndFinancialInstitutionIdentification8 value) {
         this.prvsInstgAgt2 = value;
@@ -651,11 +649,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Obtient la valeur de la propriété prvsInstgAgt2Acct.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link CashAccount40 }
-     *     
+     *
      */
     public CashAccount40 getPrvsInstgAgt2Acct() {
         return prvsInstgAgt2Acct;
@@ -663,11 +661,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Définit la valeur de la propriété prvsInstgAgt2Acct.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link CashAccount40 }
-     *     
+     *
      */
     public void setPrvsInstgAgt2Acct(CashAccount40 value) {
         this.prvsInstgAgt2Acct = value;
@@ -675,11 +673,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Obtient la valeur de la propriété prvsInstgAgt3.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link BranchAndFinancialInstitutionIdentification8 }
-     *     
+     *
      */
     public BranchAndFinancialInstitutionIdentification8 getPrvsInstgAgt3() {
         return prvsInstgAgt3;
@@ -687,11 +685,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Définit la valeur de la propriété prvsInstgAgt3.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link BranchAndFinancialInstitutionIdentification8 }
-     *     
+     *
      */
     public void setPrvsInstgAgt3(BranchAndFinancialInstitutionIdentification8 value) {
         this.prvsInstgAgt3 = value;
@@ -699,11 +697,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Obtient la valeur de la propriété prvsInstgAgt3Acct.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link CashAccount40 }
-     *     
+     *
      */
     public CashAccount40 getPrvsInstgAgt3Acct() {
         return prvsInstgAgt3Acct;
@@ -711,11 +709,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Définit la valeur de la propriété prvsInstgAgt3Acct.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link CashAccount40 }
-     *     
+     *
      */
     public void setPrvsInstgAgt3Acct(CashAccount40 value) {
         this.prvsInstgAgt3Acct = value;
@@ -723,11 +721,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Obtient la valeur de la propriété instgAgt.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link BranchAndFinancialInstitutionIdentification8 }
-     *     
+     *
      */
     public BranchAndFinancialInstitutionIdentification8 getInstgAgt() {
         return instgAgt;
@@ -735,11 +733,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Définit la valeur de la propriété instgAgt.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link BranchAndFinancialInstitutionIdentification8 }
-     *     
+     *
      */
     public void setInstgAgt(BranchAndFinancialInstitutionIdentification8 value) {
         this.instgAgt = value;
@@ -747,11 +745,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Obtient la valeur de la propriété instdAgt.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link BranchAndFinancialInstitutionIdentification8 }
-     *     
+     *
      */
     public BranchAndFinancialInstitutionIdentification8 getInstdAgt() {
         return instdAgt;
@@ -759,11 +757,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Définit la valeur de la propriété instdAgt.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link BranchAndFinancialInstitutionIdentification8 }
-     *     
+     *
      */
     public void setInstdAgt(BranchAndFinancialInstitutionIdentification8 value) {
         this.instdAgt = value;
@@ -771,11 +769,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Obtient la valeur de la propriété intrmyAgt1.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link BranchAndFinancialInstitutionIdentification8 }
-     *     
+     *
      */
     public BranchAndFinancialInstitutionIdentification8 getIntrmyAgt1() {
         return intrmyAgt1;
@@ -783,11 +781,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Définit la valeur de la propriété intrmyAgt1.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link BranchAndFinancialInstitutionIdentification8 }
-     *     
+     *
      */
     public void setIntrmyAgt1(BranchAndFinancialInstitutionIdentification8 value) {
         this.intrmyAgt1 = value;
@@ -795,11 +793,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Obtient la valeur de la propriété intrmyAgt1Acct.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link CashAccount40 }
-     *     
+     *
      */
     public CashAccount40 getIntrmyAgt1Acct() {
         return intrmyAgt1Acct;
@@ -807,11 +805,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Définit la valeur de la propriété intrmyAgt1Acct.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link CashAccount40 }
-     *     
+     *
      */
     public void setIntrmyAgt1Acct(CashAccount40 value) {
         this.intrmyAgt1Acct = value;
@@ -819,11 +817,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Obtient la valeur de la propriété intrmyAgt2.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link BranchAndFinancialInstitutionIdentification8 }
-     *     
+     *
      */
     public BranchAndFinancialInstitutionIdentification8 getIntrmyAgt2() {
         return intrmyAgt2;
@@ -831,11 +829,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Définit la valeur de la propriété intrmyAgt2.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link BranchAndFinancialInstitutionIdentification8 }
-     *     
+     *
      */
     public void setIntrmyAgt2(BranchAndFinancialInstitutionIdentification8 value) {
         this.intrmyAgt2 = value;
@@ -843,11 +841,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Obtient la valeur de la propriété intrmyAgt2Acct.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link CashAccount40 }
-     *     
+     *
      */
     public CashAccount40 getIntrmyAgt2Acct() {
         return intrmyAgt2Acct;
@@ -855,11 +853,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Définit la valeur de la propriété intrmyAgt2Acct.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link CashAccount40 }
-     *     
+     *
      */
     public void setIntrmyAgt2Acct(CashAccount40 value) {
         this.intrmyAgt2Acct = value;
@@ -867,11 +865,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Obtient la valeur de la propriété intrmyAgt3.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link BranchAndFinancialInstitutionIdentification8 }
-     *     
+     *
      */
     public BranchAndFinancialInstitutionIdentification8 getIntrmyAgt3() {
         return intrmyAgt3;
@@ -879,11 +877,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Définit la valeur de la propriété intrmyAgt3.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link BranchAndFinancialInstitutionIdentification8 }
-     *     
+     *
      */
     public void setIntrmyAgt3(BranchAndFinancialInstitutionIdentification8 value) {
         this.intrmyAgt3 = value;
@@ -891,11 +889,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Obtient la valeur de la propriété intrmyAgt3Acct.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link CashAccount40 }
-     *     
+     *
      */
     public CashAccount40 getIntrmyAgt3Acct() {
         return intrmyAgt3Acct;
@@ -903,11 +901,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Définit la valeur de la propriété intrmyAgt3Acct.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link CashAccount40 }
-     *     
+     *
      */
     public void setIntrmyAgt3Acct(CashAccount40 value) {
         this.intrmyAgt3Acct = value;
@@ -915,11 +913,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Obtient la valeur de la propriété ultmtDbtr.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link PartyIdentification272 }
-     *     
+     *
      */
     public PartyIdentification272 getUltmtDbtr() {
         return ultmtDbtr;
@@ -927,11 +925,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Définit la valeur de la propriété ultmtDbtr.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link PartyIdentification272 }
-     *     
+     *
      */
     public void setUltmtDbtr(PartyIdentification272 value) {
         this.ultmtDbtr = value;
@@ -939,11 +937,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Obtient la valeur de la propriété initgPty.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link PartyIdentification272 }
-     *     
+     *
      */
     public PartyIdentification272 getInitgPty() {
         return initgPty;
@@ -951,11 +949,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Définit la valeur de la propriété initgPty.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link PartyIdentification272 }
-     *     
+     *
      */
     public void setInitgPty(PartyIdentification272 value) {
         this.initgPty = value;
@@ -963,11 +961,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Obtient la valeur de la propriété dbtr.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link PartyIdentification272 }
-     *     
+     *
      */
     public PartyIdentification272 getDbtr() {
         return dbtr;
@@ -975,11 +973,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Définit la valeur de la propriété dbtr.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link PartyIdentification272 }
-     *     
+     *
      */
     public void setDbtr(PartyIdentification272 value) {
         this.dbtr = value;
@@ -987,11 +985,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Obtient la valeur de la propriété dbtrAcct.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link CashAccount40 }
-     *     
+     *
      */
     public CashAccount40 getDbtrAcct() {
         return dbtrAcct;
@@ -999,11 +997,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Définit la valeur de la propriété dbtrAcct.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link CashAccount40 }
-     *     
+     *
      */
     public void setDbtrAcct(CashAccount40 value) {
         this.dbtrAcct = value;
@@ -1011,11 +1009,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Obtient la valeur de la propriété dbtrAgt.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link BranchAndFinancialInstitutionIdentification8 }
-     *     
+     *
      */
     public BranchAndFinancialInstitutionIdentification8 getDbtrAgt() {
         return dbtrAgt;
@@ -1023,11 +1021,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Définit la valeur de la propriété dbtrAgt.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link BranchAndFinancialInstitutionIdentification8 }
-     *     
+     *
      */
     public void setDbtrAgt(BranchAndFinancialInstitutionIdentification8 value) {
         this.dbtrAgt = value;
@@ -1035,11 +1033,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Obtient la valeur de la propriété dbtrAgtAcct.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link CashAccount40 }
-     *     
+     *
      */
     public CashAccount40 getDbtrAgtAcct() {
         return dbtrAgtAcct;
@@ -1047,11 +1045,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Définit la valeur de la propriété dbtrAgtAcct.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link CashAccount40 }
-     *     
+     *
      */
     public void setDbtrAgtAcct(CashAccount40 value) {
         this.dbtrAgtAcct = value;
@@ -1059,11 +1057,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Obtient la valeur de la propriété cdtrAgt.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link BranchAndFinancialInstitutionIdentification8 }
-     *     
+     *
      */
     public BranchAndFinancialInstitutionIdentification8 getCdtrAgt() {
         return cdtrAgt;
@@ -1071,11 +1069,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Définit la valeur de la propriété cdtrAgt.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link BranchAndFinancialInstitutionIdentification8 }
-     *     
+     *
      */
     public void setCdtrAgt(BranchAndFinancialInstitutionIdentification8 value) {
         this.cdtrAgt = value;
@@ -1083,11 +1081,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Obtient la valeur de la propriété cdtrAgtAcct.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link CashAccount40 }
-     *     
+     *
      */
     public CashAccount40 getCdtrAgtAcct() {
         return cdtrAgtAcct;
@@ -1095,11 +1093,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Définit la valeur de la propriété cdtrAgtAcct.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link CashAccount40 }
-     *     
+     *
      */
     public void setCdtrAgtAcct(CashAccount40 value) {
         this.cdtrAgtAcct = value;
@@ -1107,11 +1105,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Obtient la valeur de la propriété cdtr.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link PartyIdentification272 }
-     *     
+     *
      */
     public PartyIdentification272 getCdtr() {
         return cdtr;
@@ -1119,11 +1117,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Définit la valeur de la propriété cdtr.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link PartyIdentification272 }
-     *     
+     *
      */
     public void setCdtr(PartyIdentification272 value) {
         this.cdtr = value;
@@ -1131,11 +1129,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Obtient la valeur de la propriété cdtrAcct.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link CashAccount40 }
-     *     
+     *
      */
     public CashAccount40 getCdtrAcct() {
         return cdtrAcct;
@@ -1143,11 +1141,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Définit la valeur de la propriété cdtrAcct.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link CashAccount40 }
-     *     
+     *
      */
     public void setCdtrAcct(CashAccount40 value) {
         this.cdtrAcct = value;
@@ -1155,11 +1153,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Obtient la valeur de la propriété ultmtCdtr.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link PartyIdentification272 }
-     *     
+     *
      */
     public PartyIdentification272 getUltmtCdtr() {
         return ultmtCdtr;
@@ -1167,11 +1165,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Définit la valeur de la propriété ultmtCdtr.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link PartyIdentification272 }
-     *     
+     *
      */
     public void setUltmtCdtr(PartyIdentification272 value) {
         this.ultmtCdtr = value;
@@ -1179,25 +1177,25 @@ public class CreditTransferTransaction64 {
 
     /**
      * Gets the value of the instrForCdtrAgt property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the Jakarta XML Binding object.
      * This is why there is not a <CODE>set</CODE> method for the instrForCdtrAgt property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getInstrForCdtrAgt().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link InstructionForCreditorAgent3 }
-     * 
-     * 
+     *
+     *
      */
     public List<InstructionForCreditorAgent3> getInstrForCdtrAgt() {
         if (instrForCdtrAgt == null) {
@@ -1208,25 +1206,25 @@ public class CreditTransferTransaction64 {
 
     /**
      * Gets the value of the instrForNxtAgt property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the Jakarta XML Binding object.
      * This is why there is not a <CODE>set</CODE> method for the instrForNxtAgt property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getInstrForNxtAgt().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link InstructionForNextAgent1 }
-     * 
-     * 
+     *
+     *
      */
     public List<InstructionForNextAgent1> getInstrForNxtAgt() {
         if (instrForNxtAgt == null) {
@@ -1237,11 +1235,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Obtient la valeur de la propriété purp.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link Purpose2Choice }
-     *     
+     *
      */
     public Purpose2Choice getPurp() {
         return purp;
@@ -1249,11 +1247,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Définit la valeur de la propriété purp.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link Purpose2Choice }
-     *     
+     *
      */
     public void setPurp(Purpose2Choice value) {
         this.purp = value;
@@ -1261,25 +1259,25 @@ public class CreditTransferTransaction64 {
 
     /**
      * Gets the value of the rgltryRptg property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the Jakarta XML Binding object.
      * This is why there is not a <CODE>set</CODE> method for the rgltryRptg property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getRgltryRptg().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link RegulatoryReporting3 }
-     * 
-     * 
+     *
+     *
      */
     public List<RegulatoryReporting3> getRgltryRptg() {
         if (rgltryRptg == null) {
@@ -1290,11 +1288,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Obtient la valeur de la propriété tax.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link TaxData1 }
-     *     
+     *
      */
     public TaxData1 getTax() {
         return tax;
@@ -1302,11 +1300,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Définit la valeur de la propriété tax.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link TaxData1 }
-     *     
+     *
      */
     public void setTax(TaxData1 value) {
         this.tax = value;
@@ -1314,25 +1312,25 @@ public class CreditTransferTransaction64 {
 
     /**
      * Gets the value of the rltdRmtInf property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the Jakarta XML Binding object.
      * This is why there is not a <CODE>set</CODE> method for the rltdRmtInf property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getRltdRmtInf().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link RemittanceLocation8 }
-     * 
-     * 
+     *
+     *
      */
     public List<RemittanceLocation8> getRltdRmtInf() {
         if (rltdRmtInf == null) {
@@ -1343,11 +1341,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Obtient la valeur de la propriété rmtInf.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link RemittanceInformation22 }
-     *     
+     *
      */
     public RemittanceInformation22 getRmtInf() {
         return rmtInf;
@@ -1355,11 +1353,11 @@ public class CreditTransferTransaction64 {
 
     /**
      * Définit la valeur de la propriété rmtInf.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link RemittanceInformation22 }
-     *     
+     *
      */
     public void setRmtInf(RemittanceInformation22 value) {
         this.rmtInf = value;
@@ -1367,25 +1365,25 @@ public class CreditTransferTransaction64 {
 
     /**
      * Gets the value of the splmtryData property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the Jakarta XML Binding object.
      * This is why there is not a <CODE>set</CODE> method for the splmtryData property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getSplmtryData().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link SupplementaryData1 }
-     * 
-     * 
+     *
+     *
      */
     public List<SupplementaryData1> getSplmtryData() {
         if (splmtryData == null) {
